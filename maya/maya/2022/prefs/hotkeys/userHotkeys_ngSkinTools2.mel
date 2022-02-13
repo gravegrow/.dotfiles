@@ -1,0 +1,53 @@
+//Maya Preference 2022 (Release 1)
+//
+//
+
+//
+// The hotkey set
+//
+hotkeySet -source "Maya_Default" -current ngSkinTools2;
+//
+// The hotkey contexts and hotkeys
+//
+hotkey -keyShortcut "a" -alt -name ("MatchTransformNameCommand");
+hotkey -keyShortcut "w" -alt -name ("ToogleShelfNameCommand");
+hotkey -keyShortcut "F1" -name ("ToggleGridNameCommand");
+hotkey -keyShortcut "z" -alt -name ("StaticTransformNameCommand");
+hotkey -keyShortcut "Down" -ctl -name ("SelectHierarchyNameCommand");
+hotkey -keyShortcut "b" -releaseName ("ngst2BrushSizeOffNameCommand");
+hotkey -keyShortcut "b" -name ("ngst2BrushSizeOnNameCommand");
+hotkey -keyShortcut "a" -sht -name ("MatchTranslationNameCommand");
+hotkey -keyShortcut "5" -name ("");
+hotkey -keyShortcut "f" -name ("ngst2ViewFitInfluenceNameCommand");
+hotkey -keyShortcut "f" -ctl -name ("ngst2PaintFloodNameCommand");
+hotkey -keyShortcut "F2" -name ("DisplayWireframeNameCommand");
+hotkey -keyShortcut "x" -alt -name ("CleanJointNameCommand");
+hotkey -keyShortcut "`" -releaseName ("");
+hotkey -keyShortcut "`" -name ("ResetTransformNameCommand");
+hotkey -keyShortcut "4" -name ("");
+hotkey -keyShortcut "h" -name ("ngst2ToggleHelpNameCommand");
+hotkey -keyShortcut "i" -name ("ngst2SetBrushIntensityNameCommand");
+hotkey -keyShortcut "F4" -name ("ToggleWireframeOnShadedCmdNameCommand");
+hotkey -keyShortcut "s" -name ("ngst2SampleInfluenceOnNameCommand");
+hotkey -keyShortcut "5" -alt -name ("");
+hotkey -keyShortcut "F3" -name ("DisplayShadedNameCommand");
+hotkey -keyShortcut "s" -releaseName ("ngst2SampleInfluenceOffNameCommand");
+hotkey -keyShortcut "c" -alt -name ("CreateControlNameCommand");
+hotkeyCtx -type "Editor" -addClient "graphEditor";
+hotkeyCtx -type "Editor" -addClient "nodeEditorPanel";
+hotkeyCtx -type "Editor" -addClient "posePanel";
+hotkeyCtx -type "Editor" -addClient "outlinerPanel";
+hotkeyCtx -type "Editor" -addClient "hyperGraphPanel";
+hotkeyCtx -type "Editor" -addClient "hyperShadePanel";
+hotkeyCtx -type "Editor" -addClient "polyTexturePlacementPanel";
+hotkeyCtx -type "Editor" -addClient "profilerPanel";
+hotkeyCtx -type "Editor" -addClient "shapePanel";
+hotkeyCtx -type "Editor" -addClient "timeEditorPanel";
+hotkeyCtx -type "Tool" -addClient "polyCutUV";
+hotkeyCtx -type "Tool" -addClient "xgmIGBrush";
+hotkeyCtx -type "Tool" -addClient "Unfold3DBrush";
+hotkeyCtx -type "Tool" -addClient "ngst2PaintContext";
+hotkeyCtx -type "Tool" -addClient "texCutContext";
+hotkeyCtx -type "Tool" -addClient "sculptMeshCache";
+hotkeyCtx -type "Tool" -addClient "SymmetrizeUVBrush";
+hotkeyCtx -type "Tool" -addClient "texSculptCacheContext";

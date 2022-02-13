@@ -1,0 +1,76 @@
+//Maya Preference 2022 (Release 1)
+//
+//
+
+nameCommand
+	-annotation "ToogleShelfNameCommand"
+	-sourceType "mel"
+	-command ("ToogleShelf")
+	ToogleShelfNameCommand;
+
+nameCommand
+	-annotation "ResetTransformNameCommand"
+	-sourceType "mel"
+	-command ("ResetTransform")
+	ResetTransformNameCommand;
+
+nameCommand
+	-annotation "ToggleGridNameCommand"
+	-sourceType "mel"
+	-command ("ToggleGrid")
+	ToggleGridNameCommand;
+
+nameCommand
+	-annotation "DisplayWireframeNameCommand"
+	-sourceType "mel"
+	-command ("DisplayWireframe")
+	DisplayWireframeNameCommand;
+
+nameCommand
+	-annotation "ToggleWireframeOnShadedCmdNameCommand"
+	-sourceType "mel"
+	-command ("ToggleWireframeOnShadedCmd")
+	ToggleWireframeOnShadedCmdNameCommand;
+
+nameCommand
+	-annotation "DisplayShadedNameCommand"
+	-sourceType "mel"
+	-command ("DisplayShaded")
+	DisplayShadedNameCommand;
+
+nameCommand
+	-annotation "SelectHierarchyNameCommand"
+	-sourceType "mel"
+	-command ("SelectHierarchy")
+	SelectHierarchyNameCommand;
+
+nameCommand
+	-annotation "StaticTransformNameCommand"
+	-sourceType "mel"
+	-command ("CreateStaticTransform")
+	StaticTransformNameCommand;
+
+nameCommand
+	-annotation "CleanJointNameCommand"
+	-sourceType "mel"
+	-command ("CreateCleanJoint")
+	CleanJointNameCommand;
+
+nameCommand
+	-annotation "CreateControlNameCommand"
+	-sourceType "mel"
+	-command ("CreateControl")
+	CreateControlNameCommand;
+
+nameCommand
+	-annotation "MatchTranslationNameCommand"
+	-sourceType "mel"
+	-command ("MatchTranslation")
+	MatchTranslationNameCommand;
+
+nameCommand
+	-annotation "MatchTransformNameCommand"
+	-sourceType "mel"
+	-command ("MatchTransform")
+	MatchTransformNameCommand;
+

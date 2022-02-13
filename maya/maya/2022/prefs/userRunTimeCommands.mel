@@ -1,0 +1,79 @@
+//Maya Preference 2022 (Release 1)
+//
+//
+
+runTimeCommand
+	-label ""
+	-annotation "Toogle Shelf"
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("ToggleShelf;")
+	ToogleShelf;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from maya import cmds\n\nsel = cmds.ls(sl=1)\nfor obj in sel:\n    keyable = cmds.listAttr(obj, keyable=1, unlocked=1, settable=1)\n    for attr in keyable:\n        default = cmds.attributeQuery(attr, node=obj, listDefault=1)\n        if cmds.getAttr(obj + \".\" + attr, settable=1) != 0:\n            cmds.setAttr(obj + \".\" + attr, default[0])")
+	ResetTransform;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from rig_tools import creator\n\ncreator.Static()")
+	CreateStaticTransform;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from rig_tools import creator\n\ncreator.Joint()")
+	CreateCleanJoint;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from rig_tools import creator\n\ncreator.Control()")
+	CreateControl;
+
