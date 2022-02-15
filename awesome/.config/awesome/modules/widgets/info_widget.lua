@@ -30,7 +30,6 @@ local widget = wibox.widget
     systray,
     hider,
     mykeyboardlayout,
-    time,
 }
 
 return widget

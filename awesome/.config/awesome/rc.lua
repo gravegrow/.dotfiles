@@ -10,6 +10,7 @@ require("modules.keybinds")
 require("modules.autorun")
 require("modules.errors")
 require("modules.statusbar")
+require("modules.statusbar_tmp")
 require("modules.rules")
 require("modules.signals")
 

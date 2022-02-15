@@ -8,14 +8,16 @@ local layoutbox = require("modules.widgets.layoutbox")
 local template = require("modules.widgets.template")
 local widgets = require("modules.widgets")
 
+for index, widget in next, widgets do
+    widgets[index] = template.default:apply(widget)
+end
+
 local function bar(s)
     local taglist = taglist_init.main(s)
     local info = nil
 
     if s == screen[1] then
         info = require("modules.widgets.info_widget")
-    elseif s == screen[2] then
-        info = require("modules.widgets.time")
     else end
 
     taglist       = template.default:apply(taglist)
@@ -23,7 +25,6 @@ local function bar(s)
     local tasklist      = template.default:apply(tasklist.init(s))
     local layoutbox     = template.default:apply(layoutbox)
     local filler        = template.default:filler()
-    local shutdown      = template.default:apply(widgets.shutdown)
 
     s.mypromptbox = awful.widget.prompt({ prompt = " Run: " })
     s.mypromptbox.shape = gears.shape.rectangle
@@ -55,7 +56,7 @@ local function bar(s)
                 filler,
                 taglist,
 
-                filler,
+                -- filler,
                 -- widgets.expand,
 
                 layout = wibox.layout.fixed.horizontal,
@@ -73,7 +74,9 @@ local function bar(s)
                     filler,
                     info,
                     filler,
-                    shutdown,
+                    widgets.time,
+                    filler,
+                    widgets.shutdown,
                     layout = wibox.layout.fixed.horizontal,
                 },
                 layout = wibox.layout.align.horizontal,
