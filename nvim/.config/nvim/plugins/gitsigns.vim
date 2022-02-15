@@ -1,4 +1,6 @@
 Plug 'lewis6991/gitsigns.nvim'
 
-lua require('gitsigns').setup {}
-
+augroup gitsigns
+    autocmd!
+    autocmd User PlugLoaded lua require('gitsigns').setup {}
+augroup end
