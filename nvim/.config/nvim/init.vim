@@ -50,7 +50,7 @@ vnoremap Y myY`y
 
 noremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-noremap <leader>ss :w<cr>
+noremap <C-s> :w<cr>
 imap jj <esc>
 
 "========================================
