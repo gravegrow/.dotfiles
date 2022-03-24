@@ -1,1 +1,1 @@
-stow awesome kitty rofi media maya nvim ranger neofetch
+stow awesome kitty rofi media maya nvim ranger neofetch mpv lvim
