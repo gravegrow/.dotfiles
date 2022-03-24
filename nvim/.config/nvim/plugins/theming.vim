@@ -1,3 +1,4 @@
+Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 

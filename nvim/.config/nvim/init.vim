@@ -51,7 +51,22 @@ vnoremap Y myY`y
 noremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 noremap <C-s> :w<cr>
+inoremap <C-s> <esc>:w<cr>
 imap jj <esc>
+imap <S-tab> <C-D>
+
+nmap <silent> <C-h> <C-w>h
+nmap <silent> <C-j> <C-w>j
+nmap <silent> <C-k> <C-w>k
+nmap <silent> <C-l> <C-w>l
+
+vnoremap p "_dP
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ'z
+
+autocmd FileType python map <leader>R :w<CR>:!python3 %<CR>
 
 "========================================
 "               PLUGINS
@@ -83,9 +98,12 @@ source ~/.config/nvim/plugins/surround.vim
 source ~/.config/nvim/plugins/autopep8.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/commentary.vim
-source ~/.config/nvim/plugins/maya.vim
+source ~/.config/nvim/plugins/renamer.vim
+source ~/.config/nvim/plugins/maya-sender.vim
 
 call plug#end()
 
 doautocmd User PlugLoaded
+
+source ~/.config/nvim/plugins/maya.vim
 

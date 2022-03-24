@@ -5,5 +5,5 @@ augroup Airline
     autocmd!
     autocmd User PlugLoaded ++nested let g:airline_powerline_fonts = 1
     autocmd User PlugLoaded ++nested let g:airline#extensions#tabline#enabled = 1
-    autocmd User PlugLoaded ++nested let g:airline_theme='one'
+    autocmd User PlugLoaded ++nested let g:airline_theme='onedark'
 augroup end

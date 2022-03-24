@@ -4,7 +4,8 @@ lua <<EOF
 function lsp_config()
     -- lspconfig
     local nvim_lsp = require('lspconfig')
-    local servers = { 'pylsp', }
+    local servers = { 'jedi_language_server' }
+
 
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -19,7 +20,7 @@ function lsp_config()
         buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
         buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
         buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-        buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+        --buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
         buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
         buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
         buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -31,6 +32,43 @@ function lsp_config()
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+    nvim_lsp.diagnosticls.setup {
+      filetypes = { "python" },
+      init_options = {
+        filetypes = {
+          python = {"flake8"},
+        },
+        linters = {
+          flake8 = {
+            debounce = 100,
+            sourceName = "flake8",
+            command = "flake8",
+            args = {
+              "--format",
+              "%(row)d:%(col)d:%(code)s:%(code)s: %(text)s",
+              "%file",
+              "--ignore=N813, E501",
+            },
+            formatPattern = {
+              "^(\\d+):(\\d+):(\\w+):(\\w).+: (.*)$",
+              {
+                  line = 1,
+                  column = 2,
+                  message = {"[", 3, "] ", 5},
+                  security = 4
+              }
+            },
+            securities = {
+              E = "error",
+              W = "warning",
+              F = "info",
+              B = "hint",
+            },
+          },
+        },
+      }
+    }
 
     for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {

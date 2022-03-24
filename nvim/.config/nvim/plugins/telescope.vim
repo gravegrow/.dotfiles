@@ -1,10 +1,11 @@
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'sharkdp/fd'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
-
 lua << EOF
 function telescope_config()
     local telescope = require('telescope')
-    telescope.setup {}
+    telescope.setup{}
     telescope.load_extension('fzf')
 end
 EOF
