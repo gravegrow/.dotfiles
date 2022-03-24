@@ -2,7 +2,6 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local taglist_init = require("modules.taglist")
 local tasklist = require("modules.widgets.tasklist")
 local layoutbox = require("modules.widgets.layoutbox")
 local template = require("modules.widgets.template")
@@ -13,15 +12,9 @@ for index, widget in next, widgets do
 end
 
 local function bar(s)
-    local taglist = taglist_init.main(s)
-    local info = nil
-
-    if s == screen[1] then
-        info = require("modules.widgets.info_widget")
-    else end
+    local taglist = require("modules.taglist")(s)
 
     taglist       = template.default:apply(taglist)
-    info          = template.default:apply(info)
     local tasklist      = template.default:apply(tasklist.init(s))
     local layoutbox     = template.default:apply(layoutbox)
     local filler        = template.default:filler()
@@ -55,10 +48,6 @@ local function bar(s)
                 layoutbox,
                 filler,
                 taglist,
-
-                -- filler,
-                -- widgets.expand,
-
                 layout = wibox.layout.fixed.horizontal,
             },
             {
@@ -71,8 +60,11 @@ local function bar(s)
                 },
                 filler,
                 {
+                    widgets.kb_layout,
                     filler,
-                    info,
+                    widgets.volume,
+                    filler,
+                    widgets.systray,
                     filler,
                     widgets.time,
                     filler,

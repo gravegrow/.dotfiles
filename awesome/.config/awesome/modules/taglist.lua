@@ -4,12 +4,11 @@ local gears = require("gears")
 local wibox = require("wibox")
 local modkey = RC.vars.modkey
 local markup = require("lain").markup
-local _M = {}
 
 local tags_one =  { "  MAIN", " DEV", " FILES", " GAMES", " SETTINGS",  " OTHER " }
 local icons_one = { " ",     " ",   " ",     " ",     " ",         " "    }
 
-local tags_two =  { "  BROWSER" , " SPOTIFY", "\u{007f} " .. "DISCORD", " KEEPASS " }
+local tags_two =  { "  BROWSER" ,  "\u{007f} " .. "DISCORD", " SPOTIFY", " KEEPASS ", " OBS " }
 local icons_two = { " ",        " ",       "\u{007f} ",       " ",      }
 
 local taglist_buttons = gears.table.join
@@ -31,7 +30,7 @@ local taglist_buttons = gears.table.join
 )
 
 
-function _M.main(s)
+local function widget(s)
     local tags = {}
     local icons = {}
     if (s == screen[1]) then tags = tags_one; icons = icons_one else tags = tags_two ; icons = icons_two end
@@ -48,4 +47,4 @@ function _M.main(s)
     return taglist
 end
 
-return _M
+return widget

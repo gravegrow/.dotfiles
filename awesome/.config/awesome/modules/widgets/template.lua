@@ -20,7 +20,7 @@ function _M.default:apply(widget)
     filler = wibox.container.background (filler, beautiful.bg_normal, gears.shape.rectangle)
     filler.forced_height = beautiful.useless_gap
 
-    holder:setup 
+    holder:setup
     {
         layout = wibox.layout.fixed.vertical,
         filler,

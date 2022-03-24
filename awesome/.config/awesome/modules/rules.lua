@@ -104,7 +104,7 @@ awful.rules.rules = {
             class = { "spotify", "Spotify" },
             name = { "Spotify" },
         },
-            properties = { tag = tags[8], switchtotag = true }
+            properties = { tag = tags[9], switchtotag = true }
     },
 
     {
@@ -112,7 +112,7 @@ awful.rules.rules = {
         {
             class = { "discord", "Discord" },
         },
-            properties = { tag = tags[9], switchtotag = true }
+            properties = { tag = tags[8], switchtotag = true }
     },
 
     {
@@ -121,6 +121,14 @@ awful.rules.rules = {
             class = { "keepassxc", "KeePassXC" },
         },
             properties = { tag = tags[10], switchtotag = true }
+    },
+
+    {
+        rule_any =
+        {
+            class = { "obs", "obs" },
+        },
+            properties = { tag = tags[11], switchtotag = true }
     },
 
     {

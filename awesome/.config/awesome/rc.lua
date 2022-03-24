@@ -1,8 +1,8 @@
 pcall(require, "luarocks.loader")
 
 RC = {}
-RC.beautiful = require("beautiful")
-RC.beautiful.init(require("theme"))
+local beautiful = require("beautiful")
+beautiful.init(require("theme"))
 RC.vars = require("modules.variables")
 
 require("modules.layouts")
@@ -10,7 +10,6 @@ require("modules.keybinds")
 require("modules.autorun")
 require("modules.errors")
 require("modules.statusbar")
-require("modules.statusbar_tmp")
 require("modules.rules")
 require("modules.signals")
 

@@ -36,7 +36,7 @@ theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.thin_width    = dpi(1)
 theme.medium_width  = dpi(1)
-theme.corner_radius  = dpi(0)
+theme.corner_radius = dpi(0)
 
 theme.border_normal = theme.normal
 theme.border_focus  = theme.border
@@ -68,6 +68,7 @@ theme.notification_icon_size = 95
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = 15
 theme.menu_width  = 100
+theme.notification_margin = 40
 
 -- You can add as many variables as
 -- you wish and access them by using
