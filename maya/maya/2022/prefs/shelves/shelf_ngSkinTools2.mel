@@ -9,7 +9,7 @@ global proc shelf_ngSkinTools2 () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 39
+        -width 33
         -height 32
         -manage 1
         -visible 1

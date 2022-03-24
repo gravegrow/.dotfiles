@@ -1,8 +1,15 @@
-from maya import cmds
+from maya.api import OpenMaya as om
 
-key = "key_cut_00"
 
-for obj in cmds.ls(sl=True):
-    new = cmds.duplicate(key)[0]
-    xform = cmds.xform(obj, q=True, m=True)
-    cmds.xform(new, m=xform)
+sel = cmds.ls(sl=True)[0]
+sel_vtx = cmds.ls('{}.vtx[:]'.format(sel), fl=True)
+
+for num, item in enumerate(sel_vtx):
+    print(str(num) + " : " + item)
+
+
+execfile
+
+import maya.cmds as cmds
+
+cmds.commandPort(name=":8722", sourceType="mel", noreturn=False, echoOutput=False, bufferSize=4096)
