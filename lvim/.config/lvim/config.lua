@@ -1,38 +1,19 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+-- config
+vim.opt.hlsearch = false
 vim.opt.cmdheight = 1
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.relativenumber = true
-
-vim.cmd([[
-    map gf :edit <cfile><cr>
-    imap jj <esc>
-
-    let $PYTHONPATH .= ':/media/storage/dev/maya/devkit/2020_4/devkitBase/devkit/other/pymel/extras/completion/py'
-    let $PYTHONPATH .= ':/media/storage/dev/maya/tools/'
-]])
-
--- general
-lvim.log.level = "warn"
+vim.opt.shiftwidth = 4
+vim.opt.relativenumber = true -- general lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
-
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+lvim.keys.insert_mode["<C-s>"] = false
+lvim.keys.normal_mode["gf"] = ":edit <cfile><cr>"
+lvim.keys.insert_mode["jj"] = "<esc>"
+lvim.keys.visual_mode["p"] = '"_dP'
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -74,18 +55,15 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.lsp.diagnostics.virtual_text = false
 
-local function total_lines()
+local function line_info()
 	return vim.fn.line(".") .. "/" .. vim.fn.line("$")
 end
-
-local components = require("lvim.core.lualine.components")
 
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_c = {}
 
-lvim.builtin.lualine.sections.lualine_x = { "filetype", total_lines }
+lvim.builtin.lualine.sections.lualine_x = { "filetype", line_info }
 lvim.builtin.lualine.sections.lualine_z = { "encoding", "fileformat" }
-
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
 	"bash",
@@ -132,14 +110,14 @@ lvim.builtin.treesitter.highlight.enabled = true
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "black", filetypes = { "python" } },
-	{ command = "isort", filetypes = { "python" } },
+	-- { command = "isort", filetypes = { "python" } },
 	{ command = "stylua", filetypes = { "lua" } },
 	{
 		-- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 		command = "prettier",
 		---@usage arguments to pass to the formatter
 		-- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-		extra_args = { "--print-with", "100" },
+		extra_args = { "--print-width", "100" },
 		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 		filetypes = { "typescript", "typescriptreact" },
 	},
@@ -148,7 +126,12 @@ formatters.setup({
 -- set additional linters
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
-	{ command = "flake8", filetypes = { "python" }, args = { "--ignore", "N813, E501" } },
+	{
+		command = "flake8",
+		filetypes = { "python" },
+		args = { "--ignore", "N803, N806, N813, E501, F841, F401, E302" },
+		extra_args = { "--severity", "warning" },
+	},
 	{
 		-- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 		command = "shellcheck",
@@ -165,50 +148,88 @@ linters.setup({
 
 -- Additional Plugins
 lvim.plugins = {
-	{ "filipdutescu/renamer.nvim" },
 	{ "tpope/vim-surround" },
 	{ "lexfrench/vim-jakesender" },
-	{ "chrisbra/csv.vim" },
-	{ "jmcantrell/vim-virtualenv" },
+	{ "folke/zen-mode.nvim" },
+	{ "rrethy/vim-hexokinase", run = "make hexokinase" },
+	{ "ThePrimeagen/refactoring.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
+	{ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
+	{ "glepnir/lspsaga.nvim" },
 }
 
-local mappings_utils = require("renamer.mappings.utils")
+vim.cmd([[let g:Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla']])
 
-require("renamer").setup({
-	title = "",
-	padding = {
-		top = 0,
-		left = 0,
-		bottom = 0,
-		right = 0,
-	},
+vim.cmd([[autocmd FileType python map <leader>R :w<CR>:!python3 %<CR>]])
 
-	min_width = 15,
-	max_width = 45,
-	border = true,
-	border_chars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-	show_refs = true,
-	with_qf_list = true,
-	with_popup = true,
-	mappings = {
-		["<c-i>"] = mappings_utils.set_cursor_to_start,
-		["<c-a>"] = mappings_utils.set_cursor_to_end,
-		["<c-e>"] = mappings_utils.set_cursor_to_word_end,
-		["<c-b>"] = mappings_utils.set_cursor_to_word_start,
-		["<c-c>"] = mappings_utils.clear_line,
-		["<c-u>"] = mappings_utils.undo,
-		["<c-r>"] = mappings_utils.redo,
-	},
-	handler = nil,
-})
+require("zen-mode").setup({ window = { backdrop = 1 } })
+lvim.builtin.which_key.mappings["z"] = { ":ZenMode<cr>", "ZenMode" }
 
-lvim.keys.normal_mode["<leader>r"] = '<cmd>lua require("renamer").rename()<cr>'
-
-lvim.keys.normal_mode["<leader>m"] = ":SendBufferToMaya<cr>"
+lvim.builtin.which_key.mappings["m"] = { ":SendBufferToMaya<cr>", "SendBufferToMaya" }
 lvim.keys.visual_mode["<leader>m"] = ":SendSelectionToMaya<cr>"
 
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+
 vim.g.csv_autocmd_arrange = 1
+
+require("refactoring").setup({})
+-- Remaps for each of the four refactoring operations currently offered by the plugin
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>re",
+	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+	{ noremap = true, silent = true, expr = false }
+)
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>rf",
+	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
+	{ noremap = true, silent = true, expr = false }
+)
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>rv",
+	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
+	{ noremap = true, silent = true, expr = false }
+)
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>ri",
+	[[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+	{ noremap = true, silent = true, expr = false }
+)
+
+-- Inline variable can also pick up the identifier currently under the cursor without visual mode
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>ri",
+	[[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+	{ noremap = true, silent = true, expr = false }
+)
+
+-- load refactoring Telescope extension
+require("telescope").load_extension("refactoring")
+
+-- remap to open the Telescope refactoring menu in visual mode
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>rr",
+	"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+	{ noremap = true }
+)
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+-- SAGA
+vim.api.nvim_set_keymap("n", "<space>R", "<cmd>lua require('lspsaga.rename').rename()<CR>", { noremap = true })
+
+-- lvim.transparent_window = true
+
+vim.cmd([[autocmd ColorScheme * highlight LspSagaRenameBorder guifg=#6E5991]])
+vim.cmd([[autocmd ColorScheme * highlight FloatBorder guifg=#6E5991 guibg=#1E1F29]])
+vim.cmd([[autocmd ColorScheme * highlight NormalFloat guibg=#1E1F29]])
+vim.cmd([[autocmd ColorScheme * highlight Normal guibg=#1E1F29]])
+vim.cmd([[autocmd ColorScheme * highlight MsgArea guibg=#1E1F29]])
+vim.cmd([[autocmd ColorScheme * highlight NormalNC guibg=#1E1F29]])

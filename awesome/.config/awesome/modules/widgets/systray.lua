@@ -1,35 +1,49 @@
-local wibox = require('wibox')
+local wibox = require("wibox")
 
-local hider = wibox.widget
-{
-    {
-        text = "  ",
-        widget = wibox.widget.textbox,
-    },
-    left = 0, right = 3, top = 1, bottom = 1,
-    widget = wibox.container.margin,
-}
+local icon_exp, icon_col = "  ", "  "
 
-local systray = wibox.widget
-{
-    {
-        widget = wibox.widget.systray,
-    },
-    visible = false,
-    left = 8, right = 0, top = 5, bottom = 4,
-    widget = wibox.container.margin,
-}
+local text = wibox.widget.textbox(icon_exp)
 
-local widget = wibox.widget
-{
-    systray,
-    hider,
-    layout = wibox.layout.fixed.horizontal
-}
+local hider = wibox.widget({
+	{
+		widget = text,
+	},
+	widget = wibox.container.margin,
+	right = 2,
+	left = -2,
+})
 
-hider:connect_signal("button::press",
-    function(_, _, _, button)
-        if button == 1 then systray.visible = not systray.visible end
-    end)
+local function hider_chager()
+	if text.text == icon_exp then
+		text.markup = icon_col
+	else
+		text.markup = icon_exp
+	end
+end
+
+local systray = wibox.widget({
+	{
+		widget = wibox.widget.systray,
+	},
+	visible = false,
+	left = 8,
+	right = 0,
+	top = 5,
+	bottom = 4,
+	widget = wibox.container.margin,
+})
+
+local widget = wibox.widget({
+	systray,
+	hider,
+	layout = wibox.layout.fixed.horizontal,
+})
+
+hider:connect_signal("button::press", function(_, _, _, button)
+	if button == 1 then
+		systray.visible = not systray.visible
+		hider_chager()
+	end
+end)
 
 return widget

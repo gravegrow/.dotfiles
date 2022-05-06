@@ -619,7 +619,7 @@ global proc shelf_Sculpting () {
     separator
         -enable 1
         -width 12
-        -height 33
+        -height 31
         -manage 1
         -visible 1
         -preventOverride 0
@@ -698,7 +698,7 @@ global proc shelf_Sculpting () {
     separator
         -enable 1
         -width 12
-        -height 33
+        -height 31
         -manage 1
         -visible 1
         -preventOverride 0
@@ -780,7 +780,7 @@ global proc shelf_Sculpting () {
     separator
         -enable 1
         -width 12
-        -height 33
+        -height 31
         -manage 1
         -visible 1
         -preventOverride 0

@@ -14,31 +14,40 @@ end
 local function bar(s)
     local taglist = require("modules.taglist")(s)
 
-    taglist       = template.default:apply(taglist)
-    local tasklist      = template.default:apply(tasklist.init(s))
-    local layoutbox     = template.default:apply(layoutbox)
-    local filler        = template.default:filler()
+    taglist = template.default:apply(taglist)
+    local tasklist = template.default:apply(tasklist.init(s))
+    local layoutbox = template.default:apply(layoutbox)
+    local filler = template.default:filler()
 
-    s.mypromptbox = awful.widget.prompt({ prompt = " Run: " })
-    s.mypromptbox.shape = gears.shape.rectangle
-    s.mypromptbox.shape_border_width  = beautiful.thin_width
-    s.mypromptbox.shape_border_color = beautiful.highlight
+    local systray = wibox.widget({
+        layout = wibox.layout.fixed.horizontal,
+        filler,
+        widgets.systray,
+    })
 
-    s.holder = wibox ({
+    if screen[s] == screen[2] then
+        systray = nil
+    end
+
+    -- s.mypromptbox = awful.widget.prompt({ prompt = " Run: " })
+    -- s.mypromptbox.shape = gears.shape.rectangle
+    -- s.mypromptbox.shape_border_width = beautiful.thin_width
+    -- s.mypromptbox.shape_border_color = beautiful.highlight
+
+    s.holder = wibox({
         visible = true,
         screen = s,
-        type = 'dock',
+        type = "dock",
         height = beautiful.bar_height + beautiful.useless_gap,
         width = s.geometry.width,
         bg = "#00000000",
     })
 
-    s.holder:struts({-- collision
-        top = beautiful.bar_height
+    s.holder:struts({ -- collision
+        top = beautiful.bar_height,
     })
 
-    s.holder: setup
-    {
+    s.holder:setup({
         layout = wibox.layout.align.horizontal,
         expand = "outside",
         {
@@ -63,8 +72,7 @@ local function bar(s)
                     widgets.kb_layout,
                     filler,
                     widgets.volume,
-                    filler,
-                    widgets.systray,
+                    systray,
                     filler,
                     widgets.time,
                     filler,
@@ -75,12 +83,14 @@ local function bar(s)
             },
             filler,
         },
-    }
+    })
 
     function toggle()
-        local id = awful.screen.focused ("mouse")
+        local id = awful.screen.focused("mouse")
         screen[id].holder.visible = not screen[id].holder.visible
     end
 end
 
-awful.screen.connect_for_each_screen (function(s) bar(s) end)
+awful.screen.connect_for_each_screen(function(s)
+    bar(s)
+end)

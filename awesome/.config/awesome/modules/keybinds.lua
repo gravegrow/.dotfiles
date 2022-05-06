@@ -4,6 +4,8 @@ local modkey = RC.vars.modkey
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
+awful.util.shell = "/bin/zsh"
+
 globalkeys = gears.table.join(
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ modkey, "Mod1" }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
@@ -47,10 +49,10 @@ globalkeys = gears.table.join(
 	end, { description = "color picker", group = "launcher" }),
 	awful.key({ modkey }, "f", function()
 		awful.spawn(RC.vars.firefox)
-	end, { description = "color firefox", group = "launcher" }),
+	end, { description = "firefox", group = "launcher" }),
 	awful.key({ modkey }, "b", function()
-		awful.spawn(RC.vars.browser)
-	end, { description = "color browser", group = "launcher" }),
+		awful.spawn("firefox --private-window")
+	end, { description = "browser", group = "launcher" }),
 	awful.key({ modkey }, "e", function()
 		awful.spawn.with_shell(RC.vars.filemanager)
 	end, { description = "run file manager", group = "launcher" }),

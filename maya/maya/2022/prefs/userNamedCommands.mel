@@ -74,3 +74,9 @@ nameCommand
 	-command ("MatchTransform")
 	MatchTransformNameCommand;
 
+nameCommand
+	-annotation "RedoNameCommand"
+	-sourceType "mel"
+	-command ("Redo")
+	RedoNameCommand;
+

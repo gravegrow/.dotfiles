@@ -1,3 +1,11 @@
 {
-  "pyright.analyst.typeCheckingMode": "off"
+    "pyright.analyst.typeCheckingMode": "off",
+    "python.analysis.extraPaths": [
+        "/media/storage/dev/maya/devkit/2020_4/devkitBase/devkit/other/pymel/extras/completion/py",
+        "/media/storage/dev/maya/tools/"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportGeneralTypeIssues": "none",
+        "reportOptionalCall": "none"
+    }
 }
