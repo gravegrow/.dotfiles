@@ -1,6 +1,3 @@
 *.uuid
 .netrwhist
-nvim/.config/nvim/plugins/*
-!nvim/.config/nvim/plugins/*.vim
-!nvim/.config/nvim/plugins/*.lua
-nvim/.config/nvim/plugins/vim-surround
+packer_compiled.lua
