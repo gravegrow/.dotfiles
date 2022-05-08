@@ -32,6 +32,7 @@ vim.opt.fillchars = 'eob: '
 vim.opt.hlsearch = false
 vim.opt.pumheight = 15
 vim.opt.smartindent = true
+vim.opt.laststatus = 3
 
 vim.cmd([[ au TextYankPost * silent! lua vim.highlight.on_yank { higroup="QuickFixLine", timeout=200 } ]])
 vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]])

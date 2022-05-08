@@ -1,5 +1,6 @@
-local ts = require('telescope')
-ts.setup({
+local telescope = require('telescope')
+
+telescope.setup({
     defaults = {
         borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
         prompt_prefix = '  ',
@@ -22,11 +23,18 @@ local opts = {
     group = 'Telescope_Theming',
     event = 'ColorScheme',
     commands = {
-        'highlight TelescopeBorder         guifg=#6E5991',
-        'highlight TelescopePromptBorder   guifg=#6E5991',
-        'highlight TelescopeResultsBorder  guifg=#6E5991',
-        'highlight TelescopePreviewBorder  guifg=#6E5991',
+        'highlight TelescopeNormal        guibg=#1E1F29',
+        'highlight TelescopeBorder        guibg=#1E1F29 guifg=#6E5991',
+        'highlight TelescopePromptBorder  guibg=#1E1F29 guifg=#6E5991',
+        'highlight TelescopeResultsBorder guibg=#1E1F29 guifg=#6E5991',
+        'highlight TelescopePreviewBorder guibg=#1E1F29 guifg=#6E5991',
     },
 }
 
 utils.autocmd(opts)
+
+telescope.load_extension('file_browser')
+
+vim.keymap.set('n', '<leader>e', ':Telescope file_browser<cr>', { noremap = true, silent = true })
+
+return telescope

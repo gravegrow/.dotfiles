@@ -1,3 +1,5 @@
-require("user.options")
-require("user.keybinds")
-require("user.plugins")
+require('user.options')
+require('user.keybinds')
+require('user.plugins')
+
+local dffs = {}

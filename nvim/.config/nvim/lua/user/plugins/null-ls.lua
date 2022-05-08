@@ -8,5 +8,6 @@ null_ls.setup({
             extra_args = { '--indent-type', 'spaces', '--quote-style', 'AutoPreferSingle' },
         }),
         -- require("null-ls").builtins.completion.spell,
+        -- diagnostics.luacheck,
     },
 })

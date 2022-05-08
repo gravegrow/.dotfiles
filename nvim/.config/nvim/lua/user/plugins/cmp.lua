@@ -1,6 +1,6 @@
-local luasnip = require('luasnip')
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 
 vim.o.completeopt = 'menuone,longest,preview'
 cmp.setup({
@@ -13,7 +13,7 @@ cmp.setup({
             mode = 'symbol',
             menu = {
                 nvim_lsp = '[LSP]',
-                nvim_lua = '[NVIM]',
+                nvim_lua = '[API]',
                 buffer = '[BUFFER]',
                 luasnip = '[SNIPPET]',
                 path = '[PATH]',
@@ -64,8 +64,8 @@ cmp.setup({
         --     select = false,
         -- }),
         ['<CR>'] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }) then
-                luasnip.expand_or_jump()
+            if cmp.visible() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             else
@@ -95,11 +95,16 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
-        { name = 'luasnip' },
         { name = 'path' },
-        --{ name = 'buffer' },
-        -- { name = 'fuzzy_path' },
+        -- { name = 'buffer' },
+        { name = 'luasnip' },
     },
 })
+
+luasnip.config.set_config({
+    history = true,
+    updateevents = 'TextChanged,TextChangedI',
+})
+
+require('luasnip.loaders.from_vscode').lazy_load()

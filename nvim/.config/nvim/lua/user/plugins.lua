@@ -7,17 +7,11 @@ end
 
 return require('packer').startup({
     function(use)
-        use({ 'wbthomason/packer.nvim' })
-        use({ 'tpope/vim-surround' })
-        use({ 'tpope/vim-fugitive' })
-        use('folke/lua-dev.nvim')
+        use('wbthomason/packer.nvim')
+        use('tpope/vim-surround')
+        use('tpope/vim-fugitive')
 
-        use({
-            'numToStr/Comment.nvim',
-            config = function()
-                require('Comment').setup()
-            end,
-        })
+        use('kyazdani42/nvim-web-devicons')
 
         use({
             'LunarVim/onedarker.nvim',
@@ -27,19 +21,44 @@ return require('packer').startup({
         })
 
         use({
+            'akinsho/bufferline.nvim',
+            tag = '*',
+            config = function()
+                require('user.plugins.bufferline')
+            end,
+        })
+
+        use({
+            'nvim-lualine/lualine.nvim',
+            config = function()
+                require('user.plugins.lualine')
+            end,
+        })
+
+        use({ 'lewis6991/spellsitter.nvim' })
+
+        use({
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
-            requires = { 'lewis6991/spellsitter.nvim' },
             config = function()
                 require('user.plugins.treesitter')
             end,
         })
 
+        use('nvim-lua/plenary.nvim')
+        use('nvim-telescope/telescope-file-browser.nvim')
+
         use({
             'nvim-telescope/telescope.nvim',
-            requires = { { 'nvim-lua/plenary.nvim' } },
             config = function()
                 require('user.plugins.telescope')
+            end,
+        })
+
+        use({
+            'ThePrimeagen/refactoring.nvim',
+            config = function()
+                require('user.plugins.refactor')
             end,
         })
 
@@ -51,39 +70,18 @@ return require('packer').startup({
         })
 
         use({
-            'neovim/nvim-lspconfig',
-            requires = { 'williamboman/nvim-lsp-installer' },
+            'folke/trouble.nvim',
             config = function()
-                require('user.plugins.lsp-config')
+                require('user.plugins.trouble')
             end,
         })
 
+        use('williamboman/nvim-lsp-installer')
+
         use({
-            'L3MON4D3/LuaSnip',
-            requires = 'rafamadriz/friendly-snippets',
+            'neovim/nvim-lspconfig',
             config = function()
-                require('user.plugins.luasnip')
-            end,
-        })
-        use({
-            'hrsh7th/nvim-cmp',
-            requires = {
-                'hrsh7th/cmp-nvim-lsp',
-                'hrsh7th/cmp-buffer',
-                'hrsh7th/cmp-path',
-                'hrsh7th/cmp-nvim-lua',
-                'hrsh7th/cmp-nvim-lsp-signature-help',
-                'saadparwaiz1/cmp_luasnip',
-                'onsails/lspkind-nvim',
-            },
-            config = function()
-                require('user.plugins.cmp')
-            end,
-        })
-        use({
-            'windwp/nvim-autopairs',
-            config = function()
-                require('user.plugins.autopairs')
+                require('user.plugins.lsp-config')
             end,
         })
 
@@ -94,35 +92,32 @@ return require('packer').startup({
             end,
         })
 
+        use('hrsh7th/cmp-nvim-lsp')
+        use('hrsh7th/cmp-buffer')
+        use('hrsh7th/cmp-path')
+        use('hrsh7th/cmp-nvim-lua')
+        use('saadparwaiz1/cmp_luasnip')
+        use('onsails/lspkind-nvim')
+        use('L3MON4D3/LuaSnip')
+        use('rafamadriz/friendly-snippets')
         use({
-            'folke/trouble.nvim',
-            requires = 'kyazdani42/nvim-web-devicons',
+            'hrsh7th/nvim-cmp',
             config = function()
-                require('user.plugins.trouble')
+                require('user.plugins.cmp')
             end,
         })
 
         use({
-            'akinsho/bufferline.nvim',
-            tag = '*',
-            requires = 'kyazdani42/nvim-web-devicons',
+            'windwp/nvim-autopairs',
             config = function()
-                require('user.plugins.bufferline')
+                require('user.plugins.autopairs')
             end,
         })
 
         use({
-            'nvim-lualine/lualine.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+            'numToStr/Comment.nvim',
             config = function()
-                require('user.plugins.lualine')
-            end,
-        })
-
-        use({
-            'lewis6991/gitsigns.nvim',
-            config = function()
-                require('user.plugins.gitsigns')
+                require('Comment').setup()
             end,
         })
 
@@ -133,7 +128,9 @@ return require('packer').startup({
     config = {
         display = {
             open_fn = function()
-                return require('packer.util').float({ border = 'rounded' })
+                return require('packer.util').float({
+                    border = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' },
+                })
             end,
         },
     },
