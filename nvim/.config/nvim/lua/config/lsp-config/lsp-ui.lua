@@ -8,14 +8,14 @@ _M.hover_higlight = function()
 end
 
 local border = {
-    { '┏', 'FloatBorder' },
-    { '━', 'FloatBorder' },
-    { '┓', 'FloatBorder' },
-    { '┃', 'FloatBorder' },
-    { '┛', 'FloatBorder' },
-    { '━', 'FloatBorder' },
-    { '┗', 'FloatBorder' },
-    { '┃', 'FloatBorder' },
+    { '┌', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '┐', 'FloatBorder' },
+    { '│', 'FloatBorder' },
+    { '┘', 'FloatBorder' },
+    { '─', 'FloatBorder' },
+    { '└', 'FloatBorder' },
+    { '│', 'FloatBorder' },
 }
 
 _M.setup = function()

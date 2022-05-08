@@ -24,15 +24,15 @@ require('bufferline').setup({
 vim.keymap.set({ 'n', 'v' }, 'L', ':BufferLineCycleNext<cr>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, 'H', ':BufferLineCyclePrev<cr>', { silent = true })
 
-local utils = require('user.utils')
+local utils = require('utils')
 local opts = {
     event = 'ColorScheme',
     group = 'Bufferline_Theming',
 
     commands = {
-        'hi BufferLineBackground                  gui=none guifg=#272931 guibg=#16161D',
+        'hi BufferLineBackground                  gui=none guifg=#555969 guibg=#16161D',
         'hi BufferLineBufferSelected              guibg=none gui=bold guifg=#8F95A1',
-        'hi BufferLineBufferVisible               gui=bold guifg=#1E1F29 guibg=#16161D',
+        'hi BufferLineBufferVisible               gui=bold guifg=#555969 guibg=#16161D',
 
         'hi BufferLineSeparator                   guibg=#111215 guifg=#111215',
         'hi BufferLineIndicatorSelected           guibg=none guifg=#65AAEE',

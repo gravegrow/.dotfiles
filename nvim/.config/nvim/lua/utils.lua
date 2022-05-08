@@ -5,7 +5,7 @@ _M.autocmd = function(opts)
     local cmd = vim.api.nvim_create_autocmd
 
     for _, command in pairs(opts.commands) do
-        cmd(opts.event, { pattern = '*' or opts.pattern, command = command, group = group })
+        cmd(opts.event, { pattern = opts.pattern or '*', command = command, group = group })
     end
 end
 

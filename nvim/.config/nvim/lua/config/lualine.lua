@@ -92,6 +92,7 @@ local cursor = {
     cond = function()
         return vim.fn.winwidth(0) > 60
     end,
+    icon = '',
 }
 
 require('lualine').setup({

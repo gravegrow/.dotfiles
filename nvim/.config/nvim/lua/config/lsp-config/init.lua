@@ -1,18 +1,18 @@
-local config = require('user.plugins.lsp-config.config')
+local handlers = require('config.lsp-config.lsp-handlers')
 
 require('lspconfig').pyright.setup({
-    on_attach = config.on_attach,
-    capabilities = config.capabilities,
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities,
 })
 
 require('lspconfig').jsonls.setup({
-    on_attach = config.on_attach,
-    capabilities = config.capabilities,
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities,
 })
 
 require('lspconfig').sumneko_lua.setup({
-    on_attach = config.on_attach,
-    capabilities = config.capabilities,
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities,
     settings = {
         Lua = {
             diagnostics = { globals = { 'awesome', 'client', 'root', 'screen', 'vim' } },

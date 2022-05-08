@@ -2,7 +2,7 @@ local telescope = require('telescope')
 
 telescope.setup({
     defaults = {
-        borderchars = { '━', '┃', '━', '┃', '┏', '┓', '┛', '┗' },
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         prompt_prefix = '  ',
         selection_caret = ' ',
     },
@@ -18,7 +18,7 @@ vim.keymap.set(
     { silent = true }
 )
 
-local utils = require('user.utils')
+local utils = require('utils')
 local opts = {
     group = 'Telescope_Theming',
     event = 'ColorScheme',
@@ -32,9 +32,3 @@ local opts = {
 }
 
 utils.autocmd(opts)
-
-telescope.load_extension('file_browser')
-
-vim.keymap.set('n', '<leader>e', ':Telescope file_browser<cr>', { noremap = true, silent = true })
-
-return telescope

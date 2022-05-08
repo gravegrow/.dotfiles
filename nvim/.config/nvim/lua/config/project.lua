@@ -6,7 +6,6 @@ require('project_nvim').setup({
     datapath = vim.fn.stdpath('data'),
 })
 
-local ts = require('telescope')
-ts.load_extension('projects')
+require('telescope').load_extension('projects')
 
 vim.keymap.set({ 'n', 'v' }, '<leader>P', ':Telescope projects<cr>', { silent = true })

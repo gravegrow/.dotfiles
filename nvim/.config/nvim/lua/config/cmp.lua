@@ -2,6 +2,8 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
+vim.keymap.set({ 'x', 'n' }, 'ga', '<Plug>EasyAlign')
+
 vim.o.completeopt = 'menuone,longest,preview'
 cmp.setup({
     experimental = {
@@ -11,12 +13,14 @@ cmp.setup({
         fields = { 'kind', 'abbr', 'menu' },
         format = lspkind.cmp_format({
             mode = 'symbol',
+            --stylua: ignore start
             menu = {
                 nvim_lsp = '[LSP]',
-                nvim_lua = '[API]',
+                nvim_lua = '[NVIM]',
                 buffer = '[BUFFER]',
                 luasnip = '[SNIPPET]',
                 path = '[PATH]',
+                cmp_tabnine = '[TABNINE]',
             },
             symbol_map = {
                 Class = ' ',
@@ -45,6 +49,7 @@ cmp.setup({
                 Value = ' ',
                 Variable = ' ',
             },
+            --stylua: ignore end
         }),
     },
     snippet = {
@@ -95,10 +100,12 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lua' },
         { name = 'path' },
-        -- { name = 'buffer' },
+        { name = 'buffer' },
         { name = 'luasnip' },
+        { name = 'cmp_tabnine' },
     },
 })
 

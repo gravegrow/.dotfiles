@@ -1,7 +1,7 @@
 local _M = {}
-local installer = require('user.plugins.lsp-config.lsp-installer')
-local keybinds = require('user.plugins.lsp-config.lsp-keybinds')
-local ui = require('user.plugins.lsp-config.lsp-ui')
+local installer = require('config.lsp-config.lsp-installer')
+local keybinds = require('config.lsp-config.lsp-keybinds')
+local ui = require('config.lsp-config.lsp-ui')
 
 installer.setup({ ensure_installed = { 'pyright', 'sumneko_lua', 'json', 'vimls', 'bashls' } })
 ui.setup()

@@ -3,7 +3,7 @@
 -- DiagnosticUnderlineInfo xxx cterm=underline gui=underline guisp=LightBlue
 -- DiagnosticUnderlineHint xxx cterm=underline gui=underline guisp=LightGrey
 
-local utils = require('user.utils')
+local utils = require('utils')
 local opts = {
     event = 'ColorScheme',
     group = 'Global_Theming',
