@@ -4,6 +4,8 @@ require('project_nvim').setup({
     exclude_dirs = { '~/.dotfiles' },
     show_hidden = false,
     datapath = vim.fn.stdpath('data'),
+
+    detection_methods = { 'pattern', 'lsp' },
 })
 
 require('telescope').load_extension('projects')

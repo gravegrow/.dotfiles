@@ -2,7 +2,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.signcolumn = 'yes:1'
-vim.opt.numberwidth = 3
+vim.opt.numberwidth = 2
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.termguicolors = true
@@ -33,6 +33,7 @@ vim.opt.hlsearch = false
 vim.opt.pumheight = 15
 vim.opt.smartindent = true
 vim.opt.laststatus = 3
+vim.o.completeopt = 'menuone,longest,preview'
 
 vim.cmd([[ au TextYankPost * silent! lua vim.highlight.on_yank { higroup="QuickFixLine", timeout=200 } ]])
 vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]])

@@ -1,11 +1,5 @@
 local _M = {}
-
-_M.hover_higlight = function()
-    local group = vim.api.nvim_create_augroup('HoverHighlighGroup', { clear = true })
-    local autocmd = vim.api.nvim_create_autocmd
-    autocmd('CursorHold', { pattern = '<buffer>', command = 'lua vim.lsp.buf.document_highlight()', group = group })
-    autocmd('CursorMoved', { pattern = '<buffer>', command = 'lua vim.lsp.buf.clear_references()', group = group })
-end
+local icons = require('colors-and-icons').icons
 
 local border = {
     { '┌', 'FloatBorder' },
@@ -50,12 +44,38 @@ _M.setup = function()
             end,
         },
     })
-
-    local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+    local signs = { Error = icons.error, Warn = icons.warn, Hint = icons.hint, Info = icons.info }
     for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 end
+
+local colors = require('colors-and-icons').colors
+require('utils').autocmd({
+    group = 'lsp_theming',
+    event = { 'VimEnter', 'ColorScheme' },
+    commands = {
+        string.format('hi DiagnosticError           guifg=%s', colors.red),
+        string.format('hi DiagnosticWarn            guifg=%s', colors.orange),
+        string.format('hi DiagnosticInfo            guifg=%s', colors.blue),
+        string.format('hi DiagnosticHint            guifg=%s', colors.blue),
+
+        -- string.format('hi DiagnosticUnderlineError  gui=italic ', colors.red, colors.red),
+        -- string.format('hi DiagnosticUnderlineWarn   gui=italic ', colors.orange, colors.orange),
+        -- string.format('hi DiagnosticUnderlineInfo   gui=italic ', colors.blue, colors.blue),
+        -- string.format('hi DiagnosticUnderlineHint   gui=italic ', colors.fg, colors.blue),
+
+        string.format('hi DiagnosticFloatingError   guifg=%s', colors.red),
+        string.format('hi DiagnosticFloatingWarn    guifg=%s', colors.orange),
+        string.format('hi DiagnosticFloatingInfo    guifg=%s', colors.blue),
+        string.format('hi DiagnosticFloatingHint    guifg=%s', colors.blue),
+
+        string.format('hi DiagnosticSignError       guifg=%s', colors.dim_red),
+        string.format('hi DiagnosticSignWarn        guifg=%s', colors.dim_orange),
+        string.format('hi DiagnosticSignInfo        guifg=%s', colors.dim_blue),
+        string.format('hi DiagnosticSignHint        guifg=%s', colors.dim_blue),
+    },
+})
 
 return _M

@@ -1,50 +1,44 @@
-local colors = {
-    red = '#C9616C',
-    dim_red = '#5B3741',
-    white = '#5C6370',
-    gray = '#16161D',
-    black = '#111215',
-    orange = '#B88861',
-    dim_orange = '#6A5443',
-    green = '#8FBA80',
-    dim_green = '#50624A',
-    blue = '#579AD3',
-    cian = '#B56ECA',
-    bg = '#1E1F29',
-}
+local icons = require('colors-and-icons').icons
+local colors = require('colors-and-icons').colors
 
 local theme = {
     normal = {
-        a = { fg = colors.white, bg = colors.gray, gui = 'bold' },
-        b = { fg = colors.white, bg = colors.gray },
-        c = { fg = colors.bg, bg = colors.black },
-        x = { fg = colors.bg, bg = colors.black },
-        y = { fg = colors.white, bg = colors.gray },
-        z = { fg = colors.white, bg = colors.gray, gui = 'bold' },
+        a = { fg = colors.fg, bg = colors.inactive, gui = 'bold' },
+        b = { fg = colors.fg, bg = colors.inactive },
+        c = { fg = colors.gray, bg = colors.black },
+        x = { fg = colors.gray, bg = colors.black },
+        y = { fg = colors.fg, bg = colors.inactive },
+        z = { fg = colors.fg, bg = colors.inactive, gui = 'bold' },
     },
-    insert = { a = { fg = colors.black, bg = colors.blue } },
-    visual = { a = { fg = colors.black, bg = colors.cian } },
-    replace = { a = { fg = colors.black, bg = colors.green } },
-    command = { a = { fg = colors.black, bg = colors.orange } },
+    insert = { a = { fg = colors.black, bg = colors.blue, gui = 'bold' } },
+    visual = { a = { fg = colors.black, bg = colors.pink, gui = 'bold' } },
+    replace = { a = { fg = colors.black, bg = colors.green, gui = 'bold' } },
+    command = { a = { fg = colors.black, bg = colors.orange, gui = 'bold' } },
 }
 
 local mode = { 'mode' }
+
 local diagnostics = {
     'diagnostics',
     source = { 'nvim' },
+    symbols = {
+        error = icons.error,
+        warn = icons.warn,
+        hint = icons.hint,
+    },
     diagnostics_color = {
         error = { fg = colors.dim_red },
         warn = { fg = colors.dim_orange },
-        hint = { fg = colors.dim_white },
+        hint = { fg = colors.dim_blue },
     },
 }
 
 local diff = {
     'diff',
     symbols = {
-        added = ' ',
-        modified = '柳',
-        removed = ' ',
+        added = icons.added,
+        modified = icons.modified,
+        removed = icons.removed,
     },
     diff_color = {
         added = { fg = colors.dim_green },
@@ -55,7 +49,6 @@ local diff = {
         return vim.fn.winwidth(0) > 80
     end,
 }
-
 local filetype = {
     'filetype',
     colored = false,
@@ -68,7 +61,7 @@ local filename = {
     'filename',
     file_status = false,
     path = 1,
-    icon = '',
+    icon = ' ',
     cond = function()
         return vim.fn.winwidth(0) > 40
     end,

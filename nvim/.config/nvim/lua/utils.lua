@@ -1,5 +1,9 @@
 local _M = {}
 
+function P(value)
+    print(vim.inspect(value))
+end
+
 _M.autocmd = function(opts)
     local group = vim.api.nvim_create_augroup(opts.group, { clear = true })
     local cmd = vim.api.nvim_create_autocmd

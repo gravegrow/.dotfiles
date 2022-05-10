@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'python', 'json', 'lua' },
+    ensure_installed = { 'python', 'json', 'lua', 'c', 'cpp', 'c_sharp' },
     sync_install = true,
     incremental_selection = {
         enable = true,

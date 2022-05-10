@@ -1,6 +1,4 @@
-local telescope = require('telescope')
-
-telescope.setup({
+require('telescope').setup({
     defaults = {
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         prompt_prefix = '  ',
@@ -8,11 +6,12 @@ telescope.setup({
     },
 })
 
-vim.keymap.set({ 'n', 'v' }, '<leader>ff', ':Telescope find_files<cr>', { silent = true })
-vim.keymap.set({ 'n', 'v' }, '<leader>fd', ':Telescope diagnostics<cr>', { silent = true })
-vim.keymap.set({ 'n', 'v' }, '<leader>fb', ':Telescope buffers<cr>', { silent = true })
+vim.keymap.set({ 'n' }, '<leader>ff', ':Telescope find_files<cr>', { silent = true })
+vim.keymap.set({ 'n' }, '<leader>fr', ':Telescope grep_string<cr>', { silent = true })
+vim.keymap.set({ 'n' }, '<leader>fd', ':Telescope diagnostics<cr>', { silent = true })
+vim.keymap.set({ 'n' }, '<leader>fb', ':Telescope buffers<cr>', { silent = true })
 vim.keymap.set(
-    { 'n', 'v' },
+    { 'n' },
     '<leader>fs',
     ':Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>',
     { silent = true }
@@ -21,7 +20,7 @@ vim.keymap.set(
 local utils = require('utils')
 local opts = {
     group = 'Telescope_Theming',
-    event = 'ColorScheme',
+    event = { 'VimEnter', 'ColorScheme' },
     commands = {
         'highlight TelescopeNormal        guibg=#1E1F29',
         'highlight TelescopeBorder        guibg=#1E1F29 guifg=#6E5991',

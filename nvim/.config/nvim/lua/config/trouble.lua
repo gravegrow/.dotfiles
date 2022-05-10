@@ -1,4 +1,14 @@
-require('trouble').setup({})
+local icons = require('colors-and-icons').icons
+
+require('trouble').setup({
+    signs = {
+        error = icons.error,
+        warning = icons.warn,
+        hint = icons.hint,
+        information = icons.info,
+        other = icons.check,
+    },
+})
 
 local trouble = require('trouble.providers.telescope')
 local telescope = require('telescope')

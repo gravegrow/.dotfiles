@@ -12,16 +12,22 @@ packer.startup({
         use('kyazdani42/nvim-web-devicons')
 
         use({ 'LunarVim/onedarker.nvim', config = get_config('theming') })
-        use({ 'akinsho/bufferline.nvim', tag = '*', config = get_config('bufferline') })
+
+        use({ 'akinsho/bufferline.nvim', config = get_config('bufferline') })
         use({ 'nvim-lualine/lualine.nvim', config = get_config('lualine') })
 
         use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = get_config('treesitter') })
 
         use('nvim-lua/plenary.nvim')
+        use('nvim-lua/popup.nvim')
         use({ 'nvim-telescope/telescope.nvim', config = get_config('telescope') })
         use({ 'nvim-telescope/telescope-file-browser.nvim', config = get_config('file-browser') })
 
-        use({ 'ThePrimeagen/refactoring.nvim', config = get_config('refactor') })
+        use({
+            'ThePrimeagen/refactoring.nvim',
+            config = get_config('refactor'),
+        })
+
         use({ 'ahmedkhalf/project.nvim', config = get_config('project') })
         use({ 'folke/trouble.nvim', config = get_config('trouble') })
 
@@ -45,6 +51,7 @@ packer.startup({
                 use('onsails/lspkind-nvim'),
                 use('L3MON4D3/LuaSnip'),
                 use('rafamadriz/friendly-snippets'),
+                use('lukas-reineke/cmp-rg'),
                 use({ 'tzachar/cmp-tabnine', run = './install.sh' }),
             },
             config = get_config('cmp'),
@@ -52,6 +59,10 @@ packer.startup({
 
         use({ 'windwp/nvim-autopairs', config = get_config('autopairs') })
         use({ 'numToStr/Comment.nvim', config = get_config('comment') })
-        use({ 'junegunn/vim-easy-align' })
+        use({ 'junegunn/vim-easy-align', config = get_config('easy-align') })
+
+        use({ 'RRethy/vim-hexokinase', run = 'make hexokinase', config = get_config('hexokinase') })
+
+        packer.bootstrap_sync()
     end,
 })
