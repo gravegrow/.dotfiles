@@ -44,7 +44,7 @@ _M.setup = function()
             end,
         },
     })
-    local signs = { Error = icons.error, Warn = icons.warn, Hint = icons.hint, Info = icons.info }
+    local signs = { Error = icons.error, Warn = icons.warning, Hint = icons.hint, Info = icons.info }
     for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -61,10 +61,10 @@ require('utils').autocmd({
         string.format('hi DiagnosticInfo            guifg=%s', colors.blue),
         string.format('hi DiagnosticHint            guifg=%s', colors.blue),
 
-        -- string.format('hi DiagnosticUnderlineError  gui=italic ', colors.red, colors.red),
-        -- string.format('hi DiagnosticUnderlineWarn   gui=italic ', colors.orange, colors.orange),
-        -- string.format('hi DiagnosticUnderlineInfo   gui=italic ', colors.blue, colors.blue),
-        -- string.format('hi DiagnosticUnderlineHint   gui=italic ', colors.fg, colors.blue),
+        string.format('hi DiagnosticUnderlineError  gui=bold guibg=%s guifg=%s', colors.bg, 'Red'),
+        string.format('hi DiagnosticUnderlineWarn   gui=bold guibg=%s guifg=%s', colors.bg, 'Orange'),
+        string.format('hi DiagnosticUnderlineInfo   gui=bold ', colors.dim_blue, colors.black),
+        string.format('hi DiagnosticUnderlineHint   gui=bold guifg=%s', colors.fg, colors.blue),
 
         string.format('hi DiagnosticFloatingError   guifg=%s', colors.red),
         string.format('hi DiagnosticFloatingWarn    guifg=%s', colors.orange),

@@ -12,14 +12,12 @@ packer.startup({
         use('kyazdani42/nvim-web-devicons')
 
         use({ 'LunarVim/onedarker.nvim', config = get_config('theming') })
-
         use({ 'akinsho/bufferline.nvim', config = get_config('bufferline') })
         use({ 'nvim-lualine/lualine.nvim', config = get_config('lualine') })
 
         use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = get_config('treesitter') })
 
         use('nvim-lua/plenary.nvim')
-        use('nvim-lua/popup.nvim')
         use({ 'nvim-telescope/telescope.nvim', config = get_config('telescope') })
         use({ 'nvim-telescope/telescope-file-browser.nvim', config = get_config('file-browser') })
 
@@ -33,7 +31,7 @@ packer.startup({
 
         use({
             'neovim/nvim-lspconfig',
-            requires = { 'williamboman/nvim-lsp-installer' },
+            requires = { 'williamboman/nvim-lsp-installer', 'jose-elias-alvarez/null-ls.nvim' },
             config = get_config('lsp-config'),
         })
 

@@ -23,12 +23,14 @@ local diagnostics = {
     source = { 'nvim' },
     symbols = {
         error = icons.error,
-        warn = icons.warn,
+        warn = icons.warning,
         hint = icons.hint,
+        info = icons.info,
     },
     diagnostics_color = {
         error = { fg = colors.dim_red },
         warn = { fg = colors.dim_orange },
+        info = { fg = colors.dim_blue },
         hint = { fg = colors.dim_blue },
     },
 }

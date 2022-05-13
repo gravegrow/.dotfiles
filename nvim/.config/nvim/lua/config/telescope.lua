@@ -3,22 +3,35 @@ require('telescope').setup({
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         prompt_prefix = '  ',
         selection_caret = ' ',
+        file_ignore_patterns = { '.pyc', '.png' },
+        sorting_strategy = 'descending',
+        layout_strategy = 'horizontal',
+        layout_config = {
+            horizontal = {
+                prompt_position = 'bottom',
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
+        },
     },
 })
 
-vim.keymap.set({ 'n' }, '<leader>ff', ':Telescope find_files<cr>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>fr', ':Telescope grep_string<cr>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>fd', ':Telescope diagnostics<cr>', { silent = true })
-vim.keymap.set({ 'n' }, '<leader>fb', ':Telescope buffers<cr>', { silent = true })
-vim.keymap.set(
-    { 'n' },
-    '<leader>fs',
-    ':Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>',
-    { silent = true }
-)
+local opts = { silent = true, noremap = true }
+
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<cr>', opts)
+vim.keymap.set('n', '<leader>fr', ':Telescope grep_string<cr>', opts)
+vim.keymap.set('n', '<leader>fd', ':Telescope diagnostics<cr>', opts)
+vim.keymap.set('n', '<leader>fs', ':Telescope current_buffer_fuzzy_find <cr>', opts)
 
 local utils = require('utils')
-local opts = {
+
+utils.autocmd({
     group = 'Telescope_Theming',
     event = { 'VimEnter', 'ColorScheme' },
     commands = {
@@ -28,6 +41,4 @@ local opts = {
         'highlight TelescopeResultsBorder guibg=#1E1F29 guifg=#6E5991',
         'highlight TelescopePreviewBorder guibg=#1E1F29 guifg=#6E5991',
     },
-}
-
-utils.autocmd(opts)
+})

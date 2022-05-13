@@ -3,7 +3,7 @@ local icons = require('colors-and-icons').icons
 require('trouble').setup({
     signs = {
         error = icons.error,
-        warning = icons.warn,
+        warning = icons.warning,
         hint = icons.hint,
         information = icons.info,
         other = icons.check,

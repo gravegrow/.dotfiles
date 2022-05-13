@@ -4,10 +4,10 @@ local luasnip = require('luasnip')
 
 --stylua: ignore start
 local sources = {
-    { name = 'luasnip' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
     { name = 'rg' },
@@ -26,7 +26,7 @@ local menu = {
 }
 
 local symbol_map = {
-    Class         = ' ',
+    --[[ Class         = ' ',
     Color         = ' ',
     Constant      = 'ﲀ ',
     Constructor   = ' ',
@@ -50,10 +50,10 @@ local symbol_map = {
     TypeParameter = ' ',
     Unit          = '塞',
     Value         = ' ',
-    Variable      = ' ',
+    Variable      = ' ', ]]
 }
 --stylua: ignore end
-vim.cmd('hi! CmpBG guibg=#16161D')
+vim.cmd('hi CmpBG guibg=#16161D')
 
 cmp.setup({
     experimental = {
