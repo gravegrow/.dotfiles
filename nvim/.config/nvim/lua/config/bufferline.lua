@@ -25,28 +25,36 @@ require('utils').autocmd({
     group = 'Bufferline_Theming',
 
     commands = {
-        'hi BufferLineBackground                  gui=none guifg=#555969 guibg=#16161D',
-        'hi BufferLineBufferSelected              gui=bold guifg=#8F95A1 guibg=none ',
-        'hi BufferLineBufferVisible               gui=none guibg=#16161D',
+        F('hi BufferLineBackground                gui=none guifg=%s guibg=%s', colors.fg, colors.dark_gray),
+        F('hi BufferLineBufferSelected            gui=bold guifg=%s guibg=none ', colors.normal),
+        F('hi BufferLineBufferVisible             gui=none guibg=%s', colors.dark_gray),
 
-        'hi BufferLineSeparator                   guibg=#111215 guifg=#111215',
-        'hi BufferLineIndicatorSelected           guibg=none guifg=#65AAEE',
+        F('hi BufferLineSeparator                 guibg=%s guifg=%s', colors.separator, colors.separator),
+        F('hi BufferLineIndicatorSelected         guibg=none guifg=%s', colors.blue),
 
-        'hi BufferLineErrorSelected               gui=bold guibg=none guifg=#B55765 ',
-        'hi BufferLineErrorDiagnosticSelected     gui=bold guibg=none guifg=#B55766 ',
-        'hi BufferLineErrorDiagnosticVisible      gui=bold guibg=none guifg=#B55766 ',
+        F('hi BufferLineErrorSelected             gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
+        F('hi BufferLineErrorDiagnosticSelected   gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
+        F('hi BufferLineError                     gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
+        F('hi BufferLineErrorDiagnostic           gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
 
         F('hi BufferLineHintSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
-        F('hi BufferLineHintDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.dim_blue),
+        F('hi BufferLineHintDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
         F('hi BufferLineHint                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
-        F('hi BufferLineHintDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
+        F('hi BufferLineHintDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
 
-        'hi BufferLineWarningSelected             gui=bold guibg=none guifg=#D19A66 ',
-        'hi BufferLineWarningDiagnosticSelected   gui=bold guibg=none guifg=#D19A66',
+        F('hi BufferLineWarningSelected           gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
+        F('hi BufferLineWarningDiagnosticSelected gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
+        F('hi BufferLineWarning                   gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
+        F('hi BufferLineWarningDiagnostic         gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
 
-        'hi BufferLineModified                    guifg=#4C5D47 guibg=#16161D',
-        'hi BufferLineModifiedVisible             guifg=#4C5D47 guibg=#16161D',
-        'hi BufferLineModifiedSelected            guifg=#98C379 guibg=none',
-        'hi BufferLineFill                        guibg=#111215',
+        F('hi BufferLineInfoSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
+        F('hi BufferLineInfoDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
+        F('hi BufferLineInfo                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
+        F('hi BufferLineInfoDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
+
+        F('hi BufferLineModified                  guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
+        F('hi BufferLineModifiedVisible           guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
+        F('hi BufferLineModifiedSelected          guifg=%s guibg=none', colors.green),
+        F('hi BufferLineFill                      guibg=%s', colors.black),
     },
 })

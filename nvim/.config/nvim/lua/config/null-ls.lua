@@ -3,6 +3,8 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local handlers = require('config.lsp-config.lsp-handlers')
 
+local h = require('null-ls.helpers')
+
 null_ls.setup({
     sources = {
         formatting.stylua.with({
@@ -10,14 +12,31 @@ null_ls.setup({
         }),
 
         diagnostics.flake8.with({
-            extra_args = { '--ignore-errors', 'F821' },
+            extra_args = { '--ignore', 'D,F401,E302,E303,E999,F821,WPS306' },
+            on_output = h.diagnostics.from_pattern(
+                [[:(%d+):(%d+): ((%u)%w+) (.*)]],
+                { 'row', 'col', 'code', 'severity', 'message' },
+                {
+                    severities = {
+                        E = h.diagnostics.severities['error'],
+                        W = h.diagnostics.severities['warning'],
+                        F = h.diagnostics.severities['information'],
+                        D = h.diagnostics.severities['information'],
+                        R = h.diagnostics.severities['warning'],
+                        S = h.diagnostics.severities['warning'],
+                        I = h.diagnostics.severities['warning'],
+                        C = h.diagnostics.severities['warning'],
+                        N = h.diagnostics.severities['warning'],
+                        Q = h.diagnostics.severities['warning'],
+                    },
+                }
+            ),
         }),
 
-        diagnostics.pylint.with({
-            extra_args = { '--disable', 'C0114,C0115,C0116,R0903,E0401,W0611,W0613' },
+        -- axbalck
+        formatting.black.with({
+            extra_args = { '--line-length', '80' },
         }),
-
-        formatting.black.with({ extra_args = '--fast' }),
         formatting.isort.with({}),
     },
     root_dir = handlers.root_dir,

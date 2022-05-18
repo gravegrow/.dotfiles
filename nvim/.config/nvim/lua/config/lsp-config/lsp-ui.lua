@@ -2,14 +2,14 @@ local _M = {}
 local icons = require('colors-and-icons').icons
 
 local border = {
-    { '┌', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '┐', 'FloatBorder' },
-    { '│', 'FloatBorder' },
-    { '┘', 'FloatBorder' },
-    { '─', 'FloatBorder' },
-    { '└', 'FloatBorder' },
-    { '│', 'FloatBorder' },
+    { '▍', 'FloatBorder' }, -- '┌'
+    { ' ', 'FloatBorder' }, -- '─'
+    { ' ', 'FloatBorder' }, -- '┐'
+    { ' ', 'FloatBorder' }, -- '│'
+    { ' ', 'FloatBorder' }, -- '┘'
+    { ' ', 'FloatBorder' }, -- '─'
+    { '▍', 'FloatBorder' }, -- '└'
+    { '▍', 'FloatBorder' }, -- '│'
 }
 
 _M.setup = function()
@@ -22,7 +22,7 @@ _M.setup = function()
     })
 
     vim.diagnostic.config({
-        virtual_text = false,
+        virtual_text = { prefix = '▰' },
         signs = true,
         underline = true,
         update_in_insert = false,
@@ -30,7 +30,7 @@ _M.setup = function()
         float = {
             focusable = false,
             style = 'minimal',
-            border = border,
+            -- border = border,
             source = 'always',
             header = '',
             prefix = '',
@@ -56,15 +56,15 @@ require('utils').autocmd({
     group = 'lsp_theming',
     event = { 'VimEnter', 'ColorScheme' },
     commands = {
-        string.format('hi DiagnosticError           guifg=%s', colors.red),
-        string.format('hi DiagnosticWarn            guifg=%s', colors.orange),
-        string.format('hi DiagnosticInfo            guifg=%s', colors.blue),
-        string.format('hi DiagnosticHint            guifg=%s', colors.blue),
+        string.format('hi DiagnosticError           guifg=%s', colors.dim_red),
+        string.format('hi DiagnosticWarn            guifg=%s', colors.dim_orange),
+        string.format('hi DiagnosticInfo            guifg=%s', colors.dim_blue),
+        string.format('hi DiagnosticHint            guifg=%s', colors.dim_blue),
 
-        string.format('hi DiagnosticUnderlineError  gui=bold guibg=%s guifg=%s', colors.bg, 'Red'),
-        string.format('hi DiagnosticUnderlineWarn   gui=bold guibg=%s guifg=%s', colors.bg, 'Orange'),
-        string.format('hi DiagnosticUnderlineInfo   gui=bold ', colors.dim_blue, colors.black),
-        string.format('hi DiagnosticUnderlineHint   gui=bold guifg=%s', colors.fg, colors.blue),
+        string.format('hi DiagnosticUnderlineError  gui=none guibg=%s guifg=%s', colors.bg, 'Red'),
+        string.format('hi DiagnosticUnderlineWarn   gui=none guibg=%s guifg=%s', colors.bg, 'none'),
+        string.format('hi DiagnosticUnderlineInfo   gui=none guibg=%s guifg=%s', colors.bg, 'none'),
+        string.format('hi DiagnosticUnderlineHint   gui=italic guibg=%s guifg=%s', colors.bg, colors.fg),
 
         string.format('hi DiagnosticFloatingError   guifg=%s', colors.red),
         string.format('hi DiagnosticFloatingWarn    guifg=%s', colors.orange),

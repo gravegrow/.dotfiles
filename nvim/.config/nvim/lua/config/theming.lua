@@ -1,12 +1,13 @@
 require('utils').autocmd({
-    event = 'ColorScheme',
+    event = { 'VimEnter', 'ColorScheme' },
     group = 'Global_Theming',
     commands = {
         'highlight clear SignColumn',
         'highlight Normal                   guibg=none',
         'highlight NormalNC                 guibg=#16161D',
-        'highlight NormalFloat              guibg=#1E1F29',
-        'highlight FloatBorder              guibg=none guifg=#6E5991',
+        'highlight NormalFloat              guibg=#16161D',
+        'highlight FloatBorder              guibg=#16161D guifg=#6E5991',
+        'highlight CmpBorder                guibg=#16161D guifg=#6E5991',
         'highlight Comment                  gui=italic,bold',
         'highlight VertSplit                guifg=#111215 guibg=#111215',
         'highlight EndOfBuffer              guibg=none',
@@ -17,6 +18,15 @@ require('utils').autocmd({
         'highlight LspReferenceWrite        gui=bold,underline guibg=none',
 
         'highlight Statement                gui=bold',
+        'highlight Operator                 gui=bold',
+        'highlight Keyword                  gui=bold',
+        'highlight Conditional              gui=bold',
+        'highlight Include                  gui=bold',
+        'highlight Exception                gui=bold',
+        'highlight Define                   gui=bold',
+        'highlight Structure                gui=bold',
+        'highlight Repeat                   gui=bold',
+        'highlight Special                  gui=bold',
         'highlight TSKeywordFunction        gui=bold',
     },
 })

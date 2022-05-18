@@ -31,7 +31,10 @@ packer.startup({
 
         use({
             'neovim/nvim-lspconfig',
-            requires = { 'williamboman/nvim-lsp-installer', 'jose-elias-alvarez/null-ls.nvim' },
+            requires = {
+                'williamboman/nvim-lsp-installer',
+                'jose-elias-alvarez/null-ls.nvim',
+            },
             config = get_config('lsp-config'),
         })
 
@@ -60,6 +63,8 @@ packer.startup({
         use({ 'junegunn/vim-easy-align', config = get_config('easy-align') })
 
         use({ 'RRethy/vim-hexokinase', run = 'make hexokinase', config = get_config('hexokinase') })
+
+        use({ '/media/storage/dev/maya/tools/vim-JakeSender', config = get_config('maya-log') })
 
         packer.bootstrap_sync()
     end,

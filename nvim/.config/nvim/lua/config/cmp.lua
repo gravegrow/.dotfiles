@@ -24,36 +24,7 @@ local menu = {
     cmp_tabnine = '[TABNINE]',
     rg          = '[RIPGREP]',
 }
-
-local symbol_map = {
-    --[[ Class         = ' ',
-    Color         = ' ',
-    Constant      = 'ﲀ ',
-    Constructor   = ' ',
-    Enum          = '練',
-    EnumMember    = ' ',
-    Event         = ' ',
-    Field         = ' ',
-    File          = '',
-    Folder        = ' ',
-    Function      = ' ',
-    Interface     = 'ﰮ ',
-    Keyword       = ' ',
-    Method        = ' ',
-    Module        = ' ',
-    Operator      = '',
-    Property      = ' ',
-    Reference     = ' ',
-    Snippet       = ' ',
-    Struct        = ' ',
-    Text          = ' ',
-    TypeParameter = ' ',
-    Unit          = '塞',
-    Value         = ' ',
-    Variable      = ' ', ]]
-}
 --stylua: ignore end
-vim.cmd('hi CmpBG guibg=#16161D')
 
 cmp.setup({
     experimental = {
@@ -64,7 +35,7 @@ cmp.setup({
         format = lspkind.cmp_format({
             mode = 'symbol_text',
             menu = menu,
-            symbol_map = symbol_map,
+            -- symbol_map = symbol_map,
         }),
     },
     snippet = {
@@ -74,12 +45,12 @@ cmp.setup({
     },
     window = {
         documentation = {
-            border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-            winhighlight = 'NormalNC:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+            border = { '', '', '', '', '', '', '', '┃' }, -- { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+            winhighlight = 'NormalNC:NormalNC,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
         },
         completion = {
             border = false,
-            winhighlight = 'NormalNC:CmpBG,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+            winhighlight = 'NormalNC:NormalNC,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
         },
     },
     mapping = {
@@ -153,17 +124,17 @@ require('utils').autocmd({
     group = 'cmp_theming',
     event = { 'VimEnter', 'ColorScheme' },
     commands = {
-        'hi CmpItemAbbrDeprecated   guibg=NONE gui=strikethrough guifg=#808080',
-        'hi CmpItemAbbrMatch        guibg=NONE guifg=#60ACEB gui=bold',
-        'hi CmpItemAbbrMatchFuzzy   guibg=NONE guifg=#60ACEB gui=bold',
-        'hi CmpItemKindVariable     guibg=NONE guifg=#9CDCFE',
-        'hi CmpItemKindInterface    guibg=NONE guifg=#9CDCFE',
-        'hi CmpItemKindText         guibg=NONE guifg=#9CDCFE',
-        'hi CmpItemKindFunction     guibg=NONE guifg=#C586C0',
-        'hi CmpItemKindMethod       guibg=NONE guifg=#C586C0',
-        'hi CmpItemKindKeyword      guibg=NONE guifg=#D4D4D4',
-        'hi CmpItemKindProperty     guibg=NONE guifg=#D4D4D4',
-        'hi CmpItemKindUnit         guibg=NONE guifg=#D4D4D4',
-        'hi CmpItemMenu             guifg=#383B45 gui=bold',
+        'hi! CmpItemAbbrDeprecated   guibg=NONE gui=strikethrough guifg=#808080',
+        'hi! CmpItemAbbrMatch        guibg=NONE guifg=#60ACEB gui=bold',
+        'hi! CmpItemAbbrMatchFuzzy   guibg=NONE guifg=#60ACEB gui=bold',
+        'hi! CmpItemKindVariable     guibg=NONE guifg=#9CDCFE',
+        'hi! CmpItemKindInterface    guibg=NONE guifg=#9CDCFE',
+        'hi! CmpItemKindText         guibg=NONE guifg=#9CDCFE',
+        'hi! CmpItemKindFunction     guibg=NONE guifg=#C586C0',
+        'hi! CmpItemKindMethod       guibg=NONE guifg=#C586C0',
+        'hi! CmpItemKindKeyword      guibg=NONE guifg=#D4D4D4',
+        'hi! CmpItemKindProperty     guibg=NONE guifg=#D4D4D4',
+        'hi! CmpItemKindUnit         guibg=NONE guifg=#D4D4D4',
+        'hi! CmpItemMenu             guifg=#383B45 gui=bold',
     },
 })

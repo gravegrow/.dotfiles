@@ -4,23 +4,36 @@ local keybinds = require('config.lsp-config.lsp-keybinds')
 local group = vim.api.nvim_create_augroup('lsp_format_on_save', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePre', { command = 'lua vim.lsp.buf.formatting_sync()', group = group })
 
-local hover_higlight = function()
-    local autocmd = vim.api.nvim_create_autocmd
-    autocmd('CursorHold', { pattern = '<buffer>', command = 'lua vim.lsp.buf.document_highlight()', group = group })
-    autocmd('CursorMoved', { pattern = '<buffer>', command = 'lua vim.lsp.buf.clear_references()', group = group })
+local hover_higlight = function(client, buffer)
+    if client.resolved_capabilities.document_highlight then
+        vim.api.nvim_create_augroup('lsp_document_highlight', {
+            clear = false,
+        })
+        vim.api.nvim_clear_autocmds({
+            buffer = buffer,
+            group = 'lsp_document_highlight',
+        })
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = 'lsp_document_highlight',
+            buffer = buffer,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            group = 'lsp_document_highlight',
+            buffer = buffer,
+            callback = vim.lsp.buf.clear_references,
+        })
+    end
 end
 
 local _M = {}
 
 _M.on_attach = function(client, buffer)
     keybinds(buffer)
+    hover_higlight(client, buffer)
 
     if client.name == 'sumneko_lua' then
         client.resolved_capabilities.document_formatting = false
-    end
-
-    if client.name ~= 'jsonls' then
-        hover_higlight()
     end
 end
 
