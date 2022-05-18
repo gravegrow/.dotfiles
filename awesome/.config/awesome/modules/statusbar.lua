@@ -1,55 +1,50 @@
-local awful = require("awful")
-local gears = require("gears")
-local wibox = require("wibox")
-local beautiful = require("beautiful")
-local tasklist = require("modules.widgets.tasklist")
-local layoutbox = require("modules.widgets.layoutbox")
-local template = require("modules.widgets.template")
-local widgets = require("modules.widgets")
-
+local awful = require('awful')
+local gears = require('gears')
+local wibox = require('wibox')
+local beautiful = require('beautiful')
+local tasklist = require('modules.widgets.tasklist')
+local layoutbox = require('modules.widgets.layoutbox')
+local template = require('modules.widgets.template')
+local widgets = require('modules.widgets')
+local screens = screen
 for index, widget in next, widgets do
     widgets[index] = template.default:apply(widget)
 end
 
-local function bar(s)
-    local taglist = require("modules.taglist")(s)
+local function statusbar(screen)
+    local taglist = require('modules.taglist')(screen)
 
     taglist = template.default:apply(taglist)
-    local tasklist = template.default:apply(tasklist.init(s))
+    local tasklist = template.default:apply(tasklist.init(screen))
     local layoutbox = template.default:apply(layoutbox)
     local filler = template.default:filler()
 
-    local systray = wibox.widget({
-        layout = wibox.layout.fixed.horizontal,
-        filler,
-        widgets.systray,
-    })
+    local systray = nil
 
-    if screen[s] == screen[2] then
-        systray = nil
+    if screens[screen] == screens[1] then
+        systray = wibox.widget({
+            layout = wibox.layout.fixed.horizontal,
+            filler,
+            widgets.systray,
+        })
     end
 
-    -- s.mypromptbox = awful.widget.prompt({ prompt = " Run: " })
-    -- s.mypromptbox.shape = gears.shape.rectangle
-    -- s.mypromptbox.shape_border_width = beautiful.thin_width
-    -- s.mypromptbox.shape_border_color = beautiful.highlight
-
-    s.holder = wibox({
+    screen.holder = wibox({
         visible = true,
-        screen = s,
-        type = "dock",
+        screen = screen,
+        type = 'dock',
         height = beautiful.bar_height + beautiful.useless_gap,
-        width = s.geometry.width,
-        bg = "#00000000",
+        width = screen.geometry.width,
+        bg = '#00000000',
     })
 
-    s.holder:struts({ -- collision
+    screen.holder:struts({ -- collision
         top = beautiful.bar_height,
     })
 
-    s.holder:setup({
+    screen.holder:setup({
         layout = wibox.layout.align.horizontal,
-        expand = "outside",
+        expand = 'outside',
         {
             layout = wibox.layout.align.horizontal,
             {
@@ -64,7 +59,7 @@ local function bar(s)
                     filler,
                     tasklist,
                     filler,
-                    s.mypromptbox,
+                    screen.mypromptbox,
                     layout = wibox.layout.fixed.horizontal,
                 },
                 filler,
@@ -86,11 +81,11 @@ local function bar(s)
     })
 
     function toggle()
-        local id = awful.screen.focused("mouse")
-        screen[id].holder.visible = not screen[id].holder.visible
+        local id = awful.screen.focused('mouse')
+        screens[id].holder.visible = not screens[id].holder.visible
     end
 end
 
 awful.screen.connect_for_each_screen(function(s)
-    bar(s)
+    statusbar(s)
 end)

@@ -1,10 +1,7 @@
--- stylua: ignore
 local shape = require('gears.shape')
-local theme_assets = require('beautiful.theme_assets')
 local xresources = require('beautiful.xresources')
 local dpi = xresources.apply_dpi
 local gfs = require('gears.filesystem')
-
 local themes_path = gfs.get_themes_dir()
 local config_path = gfs.get_dir('config')
 
@@ -18,7 +15,7 @@ theme.highlight = '#6E5991'
 theme.border = '#282a36'
 
 theme.font = 'JetBrainsMono Nerd Font Bold ' .. dpi(9)
-theme.icon_font = 'ShureTechMono Nerd Font Mod '
+theme.icon_font = 'ShureTechMono Nerd Font Mod   '
 
 theme.bg_normal = theme.normal
 theme.bg_focus = theme.highlight
@@ -34,7 +31,7 @@ theme.fg_minimize = '#FF5F87'
 
 theme.bar_height = dpi(22)
 theme.useless_gap = dpi(5)
-theme.border_width = dpi(1)
+theme.border_width = dpi(2)
 theme.thin_width = dpi(1)
 theme.medium_width = dpi(1)
 theme.corner_radius = dpi(0)
@@ -78,24 +75,24 @@ theme.notification_margin = 40
 
 -- stylua: ignore start
 
-theme.layout_fairh               = config_path .. 'theme/layouts/dracula/fairhw.png'
-theme.layout_fairv               = config_path .. 'theme/ layouts/dracula/fairvw.png'
-theme.layout_floating            = config_path .. 'theme/layouts/dracula/floatingw.png'
-theme.layout_magnifier           = config_path .. 'theme/layouts/dracula/magnifierw.png'
-theme.layout_max                 = config_path .. 'theme/layouts/dracula/maxw.png'
-theme.layout_fullscreen          = config_path .. 'theme/layouts/dracula/fullscreenw.png'
-theme.layout_tilebottom          = config_path .. 'theme/layouts/dracula/tilebottomw.png'
-theme.layout_tileleft            = config_path .. 'theme/layouts/dracula/tileleftw.png'
-theme.layout_tile                = config_path .. 'theme/layouts/dracula/tilew.png'
-theme.layout_tiletop             = config_path .. 'theme/layouts/dracula/tiletopw.png'
-theme.layout_spiral              = config_path .. 'theme/layouts/dracula/spiralw.png'
-theme.layout_dwindle             = config_path .. 'theme/layouts/dracula/dwindlew.png'
-theme.layout_cornernw            = config_path .. 'theme/layouts/dracula/cornernww.png'
-theme.layout_cornerne            = config_path .. 'theme/layouts/dracula/cornernew.png'
-theme.layout_cornersw            = config_path .. 'theme/layouts/dracula/cornersww.png'
-theme.layout_cornerse            = config_path .. 'theme/layouts/dracula/cornersew.png'
-theme.layout_centerwork          = config_path .. 'theme/layouts/dracula/centerwork.png'
-theme.layout_termfair            = config_path .. 'theme/layouts/dracula/fairhw.png'
+theme.layout_fairh      = config_path .. 'theme/layouts/dracula/fairhw.png'
+theme.layout_fairv      = config_path .. 'theme/layouts/dracula/fairvw.png'
+theme.layout_floating   = config_path .. 'theme/layouts/dracula/floatingw.png'
+theme.layout_magnifier  = config_path .. 'theme/layouts/dracula/magnifierw.png'
+theme.layout_max        = config_path .. 'theme/layouts/dracula/maxw.png'
+theme.layout_fullscreen = config_path .. 'theme/layouts/dracula/fullscreenw.png'
+theme.layout_tilebottom = config_path .. 'theme/layouts/dracula/tilebottomw.png'
+theme.layout_tileleft   = config_path .. 'theme/layouts/dracula/tileleftw.png'
+theme.layout_tile       = config_path .. 'theme/layouts/dracula/tilew.png'
+theme.layout_tiletop    = config_path .. 'theme/layouts/dracula/tiletopw.png'
+theme.layout_spiral     = config_path .. 'theme/layouts/dracula/spiralw.png'
+theme.layout_dwindle    = config_path .. 'theme/layouts/dracula/dwindlew.png'
+theme.layout_cornernw   = config_path .. 'theme/layouts/dracula/cornernww.png'
+theme.layout_cornerne   = config_path .. 'theme/layouts/dracula/cornernew.png'
+theme.layout_cornersw   = config_path .. 'theme/layouts/dracula/cornersww.png'
+theme.layout_cornerse   = config_path .. 'theme/layouts/dracula/cornersew.png'
+theme.layout_centerwork = config_path .. 'theme/layouts/dracula/centerwork.png'
+theme.layout_termfair   = config_path .. 'theme/layouts/dracula/fairhw.png'
 
 -- stylua: ignore end
 
@@ -110,5 +107,3 @@ end
 theme.icon_theme = nil
 
 return theme
-
--- vim: filetype                 =lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
