@@ -36,7 +36,7 @@
         <Quaternion UIH="0" UID="0" UIG="0" lbENU="Quaternion Interpolation Mode" dt="Enum" enumSelected="Resample As Euler Interpolation" v="2" enumItem_0="Retain Quaternion Interpolation" enumItem_1="Set As Euler Interpolation" enumItem_2="Resample As Euler Interpolation"/>
       </ExtraGrp>
       <BakeComplexAnimation UIH="0" UID="0" UIG="0" UIBG="1" UIX="1" lbENU="Bake Animation" dt="Bool" v="0">
-        <BakeFrameStart UIH="0" UID="0" UIG="0" lbENU="Start" dt="Integer" v="0"/>
+        <BakeFrameStart UIH="0" UID="0" UIG="0" lbENU="Start" dt="Integer" v="1"/>
         <BakeFrameEnd UIH="0" UID="0" UIG="0" lbENU="End" dt="Integer" v="200"/>
         <BakeFrameStep UIH="0" UID="0" UIG="0" lbENU="Step" dt="Integer" v="1"/>
         <ResampleAnimationCurves UIH="0" UID="0" UIG="0" UIBG="0" lbENU="Resample All" dt="Bool" v="1"/>
@@ -59,7 +59,7 @@
         </CurveFilterApplyCstKeyRed>
       </CurveFilter>
       <PointCache UIH="0" UID="0" UIG="0" UIBG="1" UIX="1" lbENU="Geometry Cache File(s)" dt="Bool" v="0">
-        <SelectionSetNameAsPointCache UIH="0" UID="0" UIG="0" lbENU="Set" dt="Enum" enumSelected=" " v="0" enumItem_0=" " enumItem_1="cluster1Set" enumItem_2="cluster2Set" enumItem_3="cluster3Set" enumItem_4="cluster4Set" enumItem_5="cluster5Set" enumItem_6="cluster6Set" enumItem_7="cluster7Set" enumItem_8="cluster8Set" enumItem_9="cluster9Set" enumItem_10="cluster10Set" enumItem_11="cluster11Set" enumItem_12="defaultLightSet" enumItem_13="defaultObjectSet" enumItem_14="skinCluster2Set1" enumItem_15="skinCluster3Set" enumItem_16="tweakSet3"/>
+        <SelectionSetNameAsPointCache UIH="0" UID="0" UIG="0" lbENU="Set" dt="Enum" enumSelected=" " v="0" enumItem_0=" " enumItem_1="defaultLightSet" enumItem_2="defaultObjectSet"/>
       </PointCache>
       <ConstraintsGrp UIH="0" UID="0" UIG="1" UIX="1" UIP="0" lbENU="Constraints">
         <Constraint UIH="0" UID="0" UIG="0" UIBG="0" lbENU="Constraints" dt="Bool" v="0"/>

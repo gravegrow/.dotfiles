@@ -17,7 +17,7 @@ windowPref -topLeftCorner 250 200 -widthHeight 550 562 -maximized true blindData
 windowPref -topLeftCorner 150 200 -widthHeight 1120 640 -maximized true polyTexturePlacementPanel1Window;
 windowPref -topLeftCorner 235 230 -widthHeight 1430 710 -maximized true contentBrowserPanel1Window;
 windowPref -topLeftCorner 480 1146 -widthHeight 450 320 -maximized false NewFeatureHighlightWnd;
-windowPref -topLeftCorner 37 12 -widthHeight 3414 1389 -maximized false MayaWindow;
+windowPref -topLeftCorner 37 12 -widthHeight 3412 1387 -maximized false MayaWindow;
 windowPref -topLeftCorner 43 12 -widthHeight 1694 1377 -maximized false panelArrangementWin;
 windowPref -topLeftCorner 43 12 -widthHeight 1694 1377 -maximized false PluginInfoWin;
 windowPref -topLeftCorner 32 10 -widthHeight 1699 1392 -maximized false pluginManagerWindow;
@@ -27,7 +27,7 @@ windowPref -topLeftCorner 259 1122 -widthHeight 584 887 -maximized false shelfEd
 windowPref -topLeftCorner 32 10 -widthHeight 1974 1392 -maximized false Viewport20OptionsWindow;
 windowPref -topLeftCorner 453 693 -widthHeight 1718 814 -maximized false HotkeyEditor;
 windowPref -topLeftCorner 37 12 -widthHeight 1700 1389 -maximized false OptionBoxWindow;
-windowPref -topLeftCorner 712 1494 -widthHeight 378 404 -maximized false cometRenameWin;
+windowPref -topLeftCorner 648 2313 -widthHeight 378 404 -maximized false cometRenameWin;
 windowPref -topLeftCorner 829 1423 -widthHeight 250 246 -maximized false asFitResample;
 windowPref -topLeftCorner 32 10 -widthHeight 1699 1392 -maximized false Addshelf_win;
 windowPref -topLeftCorner 114 2343 -widthHeight 832 1010 -maximized false faceHelpImage;
@@ -38,3 +38,4 @@ windowPref -topLeftCorner 212 1727 -widthHeight 935 847 -maximized false express
 windowPref -topLeftCorner 22 0 -widthHeight 1166 1392 -maximized false RenameAttrWin;
 windowPref -topLeftCorner 32 10 -widthHeight 1699 1392 -maximized false FbxWarningWindow;
 windowPref -topLeftCorner 548 2725 -widthHeight 200 180 -maximized false eyeLidSetupWin;
+windowPref -topLeftCorner 37 12 -widthHeight 2719 1389 -maximized false assignNewMaterialWindow;
