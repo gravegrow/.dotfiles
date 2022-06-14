@@ -144,7 +144,7 @@ global proc shelf_Main () {
         -style "iconOnly" 
         -marginWidth 1
         -marginHeight 1
-        -command "from control_tools import main\n\n\nmain.open_ui()\n" 
+        -command "from control_tools import main\n\nmain.open_ui()" 
         -sourceType "python" 
         -commandRepeatable 1
         -flat 1

@@ -3,7 +3,7 @@ require('telescope').setup({
         borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
         prompt_prefix = '  ',
         selection_caret = ' ',
-        file_ignore_patterns = { '.pyc', '.png', '__init__.py' },
+        file_ignore_patterns = { '.pyc', '.png' },
         sorting_strategy = 'descending',
         layout_strategy = 'horizontal',
         layout_config = {

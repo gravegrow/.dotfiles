@@ -1,77 +1,63 @@
-local shape = require('gears.shape')
 local xresources = require('beautiful.xresources')
 local dpi = xresources.apply_dpi
 local gfs = require('gears.filesystem')
 local themes_path = gfs.get_themes_dir()
 local config_path = gfs.get_dir('config')
-
+local shape = require('gears.shape')
+local wibox = require('wibox')
 local theme = {}
 
-theme.red = '#FF5F87'
-theme.green = '#87d787'
+theme.red = '#E06C75'
+theme.green = '#98C379'
 theme.blue = '#65aaee'
 theme.normal = '#1E1F29'
 theme.highlight = '#6E5991'
 theme.border = '#282a36'
 
 theme.font = 'JetBrainsMono Nerd Font Bold ' .. dpi(9)
-theme.icon_font = 'ShureTechMono Nerd Font Mod   '
 
 theme.bg_normal = theme.normal
 theme.bg_focus = theme.highlight
 theme.bg_urgent = theme.red
-theme.bg_minimize = theme.normal
+theme.bg_minimize = theme.border
 theme.bg_systray = theme.normal
 
-theme.fg = theme.blue
-theme.fg_normal = theme.blue
+theme.fg_normal = '#6E5991'
 theme.fg_focus = theme.normal
 theme.fg_urgent = theme.red
-theme.fg_minimize = '#FF5F87'
 
-theme.bar_height = dpi(22)
-theme.useless_gap = dpi(5)
+theme.bar_height = dpi(26)
+theme.useless_gap = dpi(4)
 theme.border_width = dpi(2)
-theme.thin_width = dpi(1)
-theme.medium_width = dpi(1)
-theme.corner_radius = dpi(0)
+theme.corner_radius = dpi(4)
 
 theme.border_normal = theme.normal
-theme.border_focus = theme.border
-theme.border_marked = '#91231c'
+theme.border_focus = '#403355'
 
-theme.systray_icon_spacing = 4
+theme.bg_systray = '#1B1721'
+theme.systray_icon_spacing = dpi(6)
 
-theme.taglist_font = 'ShureTechMono Nerd Font Mod ' .. dpi(9)
-theme.taglist_spacing = 0
+-- theme.taglist_font = 'ShureTechMono Nerd Font Mod 15'
+theme.taglist_font = 'JetBrainsMono Nerd Font Bold ' .. dpi(10)
 theme.taglist_fg_focus = theme.blue
 theme.taglist_fg_occupied = theme.highlight
 theme.taglist_bg_focus = theme.normal
 theme.taglist_fg_empty = theme.border
+theme.taglist_bg_empty = '#1B1721'
+theme.taglist_bg_focus = '#1B1721'
+theme.taglist_bg_occupied = '#1B1721'
+theme.taglist_bg_urgent = '#1B1721'
 theme.taglist_fg_urgent = theme.green
-theme.taglist_bg_urgent = theme.normal
 
--- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
--- notification_[width|height|margin]
 theme.notification_height = 100
--- notification_[border_color|border_width|shape|opacity]
 theme.notification_bg = theme.normal
 theme.notification_fg = theme.blue
 theme.notification_icon_size = 95
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
+
 theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
 theme.menu_height = 15
 theme.menu_width = 100
 theme.notification_margin = 40
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget                = "#cc0000"
 
 -- stylua: ignore start
 
@@ -96,14 +82,24 @@ theme.layout_termfair   = config_path .. 'theme/layouts/dracula/fairhw.png'
 
 -- stylua: ignore end
 
-theme.tasklist_bg_minimize = theme.highlight
-theme.tasklist_disable_task_name = true
-theme.tasklist_shape_minimized = function(cr, width, height)
-    shape.transform(shape.isosceles_triangle):translate(7, 0)(cr, width / 2, height)
+theme.tasklist_bg_normal = '#1B1721'
+theme.tasklist_bg_minimize = theme.border
+theme.tasklist_bg_focus = theme.border_focus
+
+theme.widget_bg = '#1B1721'
+theme.widget_gap = dpi(4)
+theme.widget_border = dpi(3)
+theme.widget_shape = function(cr, w, h)
+    shape.rounded_rect(cr, w, h - theme.widget_border, theme.corner_radius)
 end
 
--- Define the icon theme for application icons. If not set then the icons
--- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.widget_style = function(widget)
+    widget = wibox.container.margin(widget, 0, 0, 0, dpi(1))
+    widget = wibox.container.background(widget, theme.widget_bg, theme.widget_shape)
+    widget.shape_border_width = dpi(1)
+    widget.shape_border_color = theme.border
+    widget = wibox.container.margin(widget, theme.widget_gap, theme.widget_gap, theme.widget_border, 0)
+    return widget
+end
 
 return theme

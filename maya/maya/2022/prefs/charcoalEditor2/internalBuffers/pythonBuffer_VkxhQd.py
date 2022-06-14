@@ -1,2 +1,3 @@
-outfile = '/home/gravegrow/maya/output.log'
-cmds.cmdFileOutput(historyFilename=outfile, writeHistory=True)
+from control_tools import main
+
+main.open_ui()

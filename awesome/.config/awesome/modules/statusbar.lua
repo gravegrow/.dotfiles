@@ -5,10 +5,11 @@ local beautiful = require('beautiful')
 local tasklist = require('modules.widgets.tasklist')
 local layoutbox = require('modules.widgets.layoutbox')
 local template = require('modules.widgets.template')
-local widgets = require('modules.widgets')
 local screens = screen
+
+local widgets = require('modules.widgets')
 for index, widget in next, widgets do
-    widgets[index] = template.default:apply(widget)
+    -- widgets[index] = template.default:apply(widget)
 end
 
 local function statusbar(screen)

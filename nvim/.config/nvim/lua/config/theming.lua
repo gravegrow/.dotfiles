@@ -4,10 +4,11 @@ require('utils').autocmd({
     commands = {
         'highlight clear SignColumn',
         'highlight Normal                   guibg=none',
-        'highlight NormalNC                 guibg=#16161D',
+        'highlight NormalNC                 guibg=#1E1F29',
         'highlight NormalFloat              guibg=#16161D',
         'highlight FloatBorder              guibg=#16161D guifg=#6E5991',
         'highlight CmpBorder                guibg=#16161D guifg=#6E5991',
+        'highlight CmpNormal                guibg=#16161D guifg=#9B9FAF',
         'highlight Comment                  gui=italic,bold',
         'highlight VertSplit                guifg=#111215 guibg=#111215',
         'highlight EndOfBuffer              guibg=none',

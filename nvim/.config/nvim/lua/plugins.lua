@@ -62,6 +62,8 @@ packer.startup({
         use({ 'numToStr/Comment.nvim', config = get_config('comment') })
         use({ 'junegunn/vim-easy-align', config = get_config('easy-align') })
 
+        use({ 'akinsho/toggleterm.nvim', config = get_config('toggleterm') })
+
         use({ 'RRethy/vim-hexokinase', run = 'make hexokinase', config = get_config('hexokinase') })
 
         use({ '/media/storage/dev/maya/tools/vim-JakeSender', config = get_config('maya-log') })

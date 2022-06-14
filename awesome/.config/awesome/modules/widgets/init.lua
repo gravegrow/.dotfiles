@@ -1,7 +1,6 @@
-local beautiful = require('beautiful')
-
 local widgets = {
-    kb_layout = require('modules.widgets.kb_layout'),
+    -- taglist = require('modules.widgets.taglist'),
+    kb = require('modules.widgets.kb_layout'),
     systray = require('modules.widgets.systray'),
     shutdown = require('modules.widgets.shutdown'),
     time = require('modules.widgets.time'),

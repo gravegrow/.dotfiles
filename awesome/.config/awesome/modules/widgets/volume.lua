@@ -8,8 +8,8 @@ local markup = lain.util.markup
 local function volume(args)
     args = args
         or {
-            unmute = beautiful.bg_focus,
-            background = '#1B1721',
+            unmute = beautiful.fg_normal,
+            background = beautiful.normal,
             mute = beautiful.bg_urgent,
         }
 
@@ -47,14 +47,21 @@ local function volume(args)
     local widget = wibox.widget({
         {
             {
-                { widget = icon.widget },
-                right = -5,
-                left = 8,
-                widget = wibox.container.margin,
+                {
+                    { widget = icon.widget },
+                    right = -5,
+                    left = 7,
+                    bottom = 0,
+                    widget = wibox.container.margin,
+                },
+                bar.bar,
+                text.widget,
+                layout = wibox.layout.fixed.horizontal,
             },
-            bar.bar,
-            text.widget,
-            layout = wibox.layout.fixed.horizontal,
+            bottom = 3,
+            left = 0,
+            right = -3,
+            widget = wibox.container.margin,
         },
         fg = args.unmute or beautiful.fg_normal,
         widget = wibox.container.background,
@@ -110,7 +117,7 @@ local function volume(args)
         end)
     )
 
-    return widget
+    return beautiful.widget_style(widget)
 end
 
 return volume

@@ -4,9 +4,9 @@ local luasnip = require('luasnip')
 
 --stylua: ignore start
 local sources = {
-    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
@@ -45,12 +45,12 @@ cmp.setup({
     },
     window = {
         documentation = {
-            border = { '', '', '', '', '', '', '', '┃' }, -- { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-            winhighlight = 'NormalNC:NormalNC,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
+            border = { '▍', ' ', ' ', ' ', ' ', ' ', '▍', '▍' }, -- { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+            winhighlight = 'NormalNC:CmpNormal,FloatBorder:CmpBorder',
         },
         completion = {
             border = false,
-            winhighlight = 'NormalNC:NormalNC,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+            winhighlight = 'NormalNC:CmpNormal,FloatBorder:CmpBorder',
         },
     },
     mapping = {

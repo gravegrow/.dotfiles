@@ -13,18 +13,28 @@ end
 
 local sumneko_binary_path = vim.fn.exepath('lua-language-server')
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+table.insert(runtime_path, '/usr/share/awesome/lib/?.lua')
+table.insert(runtime_path, '/usr/share/awesome/lib/?/init.lua')
 
 providers.sumneko_lua = {
     cmd = { sumneko_binary_path, '-E', sumneko_root_path .. '/main.lua' },
     settings = {
         Lua = {
-            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-            diagnostics = { enable = true, globals = { 'awesome', 'client', 'root', 'screen', 'vim' } },
+            runtime = {
+                version = 'LuaJIT',
+                path = runtime_path,
+            },
+            diagnostics = {
+                globals = { 'awesome', 'client', 'root', 'screen', 'vim' },
+            },
             workspace = {
                 library = {
-                    '/usr/share/awesome/lib',
-                    vim.api.nvim_get_runtime_file('', true),
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    ['/usr/share/nvim/runtime/lua'] = true,
+                    ['/usr/share/nvim/runtime/lua/lsp'] = true,
+                    ['/usr/share/awesome/lib'] = true,
                 },
             },
         },

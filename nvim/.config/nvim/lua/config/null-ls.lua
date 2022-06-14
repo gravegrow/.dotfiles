@@ -12,7 +12,7 @@ null_ls.setup({
         }),
 
         diagnostics.flake8.with({
-            extra_args = { '--ignore', 'D,F401,E302,E303,E999,F821,WPS306' },
+            extra_args = { '--ignore', 'D,F401,E302,E303,E999,F821,WPS306,WPS421,E800' },
             on_output = h.diagnostics.from_pattern(
                 [[:(%d+):(%d+): ((%u)%w+) (.*)]],
                 { 'row', 'col', 'code', 'severity', 'message' },
@@ -33,9 +33,8 @@ null_ls.setup({
             ),
         }),
 
-        -- axbalck
         formatting.black.with({
-            extra_args = { '--line-length', '80' },
+            extra_args = { '--line-length', '79' },
         }),
         formatting.isort.with({}),
     },

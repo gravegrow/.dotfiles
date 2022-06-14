@@ -1,47 +1,46 @@
-local wibox = require("wibox")
-local awful = require("awful")
+local awful = require('awful')
+local wibox = require('wibox')
+local beautiful = require('beautiful')
+local calendar = awful.widget.calendar_popup.month({ position = 'tr' })
+local markup = require('lain.util.markup')
 
-local calendar = awful.widget.calendar_popup.month({ position = "tr" })
+local _M = {}
+function _M.setup(args)
+    local icon = ' '
+    local color = '#3EA6FF'
+    local format = markup.fg.color(color, icon .. '%H:%M')
+    local format_long = markup.fg.color(color, icon .. '%d %B | %A | %H:%M')
+    local time = wibox.widget.textclock(format)
 
-local icon = wibox.widget({
-	{
-		widget = wibox.widget.textbox(" "),
-	},
-	bottom = -1,
-	right = 2,
-	widget = wibox.container.margin,
-})
+    local widget = wibox.widget({
+        {
+            layout = wibox.layout.fixed.horizontal,
+            time,
+        },
+        right = 7,
+        left = 7,
+        bottom = 3,
+        widget = wibox.container.margin,
+    })
 
-local format = "%H:%M"
-local format_long = "%d %B | %A | %H:%M"
-local time = wibox.widget.textclock(format)
+    local function toogle_time_format()
+        if time.format ~= format then
+            time.format = format
+        else
+            time.format = format_long
+        end
+    end
 
-local widget = wibox.widget({
-	{
-		layout = wibox.layout.fixed.horizontal,
-		icon,
-		time,
-	},
-	right = 7,
-	left = 7,
-	widget = wibox.container.margin,
-})
+    widget:connect_signal('button::press', function(_, _, _, button)
+        if button == 1 then
+            toogle_time_format()
+        end
+        if button == 3 then
+            calendar:toggle()
+        end
+    end)
 
-local function toogle_time_format()
-	if time.format ~= format then
-		time.format = format
-	else
-		time.format = format_long
-	end
+    return beautiful.widget_style(widget)
 end
 
-widget:connect_signal("button::press", function(_, _, _, button)
-	if button == 1 then
-		toogle_time_format()
-	end
-	if button == 3 then
-		calendar:toggle()
-	end
-end)
-
-return widget
+return _M
