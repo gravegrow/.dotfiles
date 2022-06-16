@@ -90,8 +90,8 @@
                                 },
                                 {
                                     "tabWidget": {
-                                        "selectedIndex": 0,
-                                        "controlWidth": 240,
+                                        "selectedIndex": 2,
+                                        "controlWidth": 701,
                                         "controlHeight": 928,
                                         "collapsed": false,
                                         "controls": [
@@ -344,93 +344,12 @@
     ],
     "closedControls": [
         {
-            "objectName": "SimpleRigToolWorkspaceControl",
-            "posX": 13,
-            "posY": 35,
-            "controlHeight": 1388,
-            "controlWidth": 1695,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "componentEditorPanel1Window",
-            "posX": 13,
-            "posY": 35,
-            "controlHeight": 1388,
-            "controlWidth": 1695,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "hyperShadePanel1Window",
-            "posX": 10,
-            "posY": 43,
-            "controlHeight": 1383,
-            "controlWidth": 1700,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "polyTexturePlacementPanel1Window",
-            "posX": 13,
-            "posY": 38,
-            "controlHeight": 1385,
-            "controlWidth": 803,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "scriptEditorPanel1Window",
-            "posX": 10,
-            "posY": 43,
-            "controlHeight": 1383,
-            "controlWidth": 1186,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "SSEwindow",
-            "posX": 11,
-            "posY": 33,
-            "controlHeight": 1392,
-            "controlWidth": 1699,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "MayaRenderSetupWindowWorkspaceControl",
-            "posX": 11,
-            "posY": 33,
-            "controlHeight": 1375,
-            "controlWidth": 725,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
             "objectName": "UVToolkitDockControl",
             "posX": 13,
             "posY": 38,
             "controlHeight": 1385,
             "controlWidth": 803,
             "widthProperty": "preferred",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "createNodePanel2Window",
-            "posX": 13,
-            "posY": 38,
-            "controlHeight": 1385,
-            "controlWidth": 2152,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "SetControlToolsWinObjectWorkspaceControl",
-            "posX": 1274,
-            "posY": 240,
-            "controlHeight": 596,
-            "controlWidth": 192,
-            "widthProperty": "free",
             "heightProperty": "free"
         },
         {
@@ -448,6 +367,87 @@
             "posY": 43,
             "controlHeight": 1383,
             "controlWidth": 1700,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SetControlToolsWinObjectWorkspaceControl",
+            "posX": 1274,
+            "posY": 240,
+            "controlHeight": 596,
+            "controlWidth": 192,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "hyperShadePanel1Window",
+            "posX": 10,
+            "posY": 43,
+            "controlHeight": 1383,
+            "controlWidth": 1700,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SSEwindow",
+            "posX": 11,
+            "posY": 33,
+            "controlHeight": 1392,
+            "controlWidth": 1699,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SimpleRigToolWorkspaceControl",
+            "posX": 13,
+            "posY": 35,
+            "controlHeight": 1388,
+            "controlWidth": 1695,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "polyTexturePlacementPanel1Window",
+            "posX": 13,
+            "posY": 38,
+            "controlHeight": 1385,
+            "controlWidth": 803,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "componentEditorPanel1Window",
+            "posX": 13,
+            "posY": 35,
+            "controlHeight": 1388,
+            "controlWidth": 1695,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "MayaRenderSetupWindowWorkspaceControl",
+            "posX": 11,
+            "posY": 33,
+            "controlHeight": 1375,
+            "controlWidth": 725,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "scriptEditorPanel1Window",
+            "posX": 10,
+            "posY": 43,
+            "controlHeight": 1383,
+            "controlWidth": 1186,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "createNodePanel2Window",
+            "posX": 13,
+            "posY": 38,
+            "controlHeight": 1385,
+            "controlWidth": 2152,
             "widthProperty": "free",
             "heightProperty": "free"
         }

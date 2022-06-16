@@ -74,7 +74,7 @@ local shutdown_button = wibox.widget({
         bottom = 5,
         layout = wibox.container.margin,
     },
-    fg = beautiful.bg_focus,
+    fg = beautiful.fg_normal,
     widget = wibox.container.background,
 })
 
@@ -88,10 +88,10 @@ shutdown_button:buttons(gears.table.join(awful.button({}, 1, function()
     hider.visible = not hider.visible
     if not hider.visible then
         shutdown_button:set_bg('#00000000')
-        shutdown_button.fg = beautiful.bg_focus
+        shutdown_button.fg = beautiful.fg_normal
     else
         shutdown_button:set_bg(beautiful.border)
-        shutdown_button.fg = beautiful.fg_normal
+        shutdown_button.fg = beautiful.highlight
     end
 end)))
 

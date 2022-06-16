@@ -7,7 +7,7 @@ local markup = require('lain.util.markup')
 local _M = {}
 function _M.setup(args)
     local icon = ' '
-    local color = '#3EA6FF'
+    local color = beautiful.blue
     local format = markup.fg.color(color, icon .. '%H:%M')
     local format_long = markup.fg.color(color, icon .. '%d %B | %A | %H:%M')
     local time = wibox.widget.textclock(format)
