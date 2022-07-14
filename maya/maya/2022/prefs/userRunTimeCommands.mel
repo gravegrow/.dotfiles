@@ -77,3 +77,18 @@ runTimeCommand
 	-command ("from rig_tools import creator\n\ncreator.Control()")
 	CreateControl;
 
+runTimeCommand
+	-label ""
+	-annotation "joint_on_selected_edge"
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from maya import cmds\nfrom maya import cmds\n\n\ndef find_selection_center():\n    sel = cmds.ls(sl=True)\n\n    parent = cmds.listRelatives(parent=True)\n    tempClstr = cmds.cluster()\n    if tempClstr is None:\n        return\n\n    piv = cmds.xform(tempClstr[1], q=True, ws=True, rp=True)\n    cmds.delete(tempClstr)\n\n    loc = cmds.joint()\n    cmds.xform(loc, translation=piv, ws=True, a=True)\n\n    cmds.select(parent, sel)\n    cmds.selectMode(component=True)\n    cmds.selectType(edge=True)\n\n\nfind_selection_center()\n\n\n")
+	joint_on_selected_edge;
+

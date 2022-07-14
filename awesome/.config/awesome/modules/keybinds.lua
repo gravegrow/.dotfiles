@@ -7,6 +7,10 @@ require('awful.hotkeys_popup.keys')
 awful.util.shell = '/bin/zsh'
 
 globalkeys = gears.table.join(
+    awful.key({ modkey }, '0', function()
+        awful.spawn('flameshot gui')
+    end, { description = 'screenshot tool', group = 'awesome' }),
+
     awful.key({ modkey }, 's', hotkeys_popup.show_help, { description = 'show help', group = 'awesome' }),
     awful.key({ modkey, 'Mod1' }, 'Left', awful.tag.viewprev, { description = 'view previous', group = 'tag' }),
 

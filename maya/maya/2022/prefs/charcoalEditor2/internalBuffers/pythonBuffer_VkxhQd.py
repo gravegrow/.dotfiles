@@ -1,3 +1,3 @@
-from control_tools import main
-
-main.open_ui()
+import wy_splinifyUI
+reload (wy_splinifyUI)
+wy_splinifyUI.splinifyUI()

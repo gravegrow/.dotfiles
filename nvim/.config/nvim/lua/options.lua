@@ -37,3 +37,4 @@ vim.o.completeopt = 'menuone,longest,preview'
 
 vim.cmd([[ au TextYankPost * silent! lua vim.highlight.on_yank { higroup="QuickFixLine", timeout=200 } ]])
 vim.cmd([[ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o ]])
+vim.cmd([[ autocmd BufRead,BufNewFile *.conf setf dosini ]])

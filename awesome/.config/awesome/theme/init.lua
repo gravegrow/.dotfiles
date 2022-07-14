@@ -7,12 +7,14 @@ local shape = require('gears.shape')
 local wibox = require('wibox')
 local theme = {}
 
-theme.red = '#E06C75'
-theme.green = '#98C379'
-theme.blue = '#65aaee'
-theme.normal = '#1E1F29'
+-- stylua: ignore start
+theme.red       = '#E06C75'
+theme.green     = '#98C379'
+theme.blue      = '#65aaee'
+theme.normal    = '#1E1F29'
 theme.highlight = '#6E5991'
-theme.border = '#282a36'
+theme.border    = '#282a36'
+-- stylua: ignore end
 
 theme.font = 'JetBrainsMono Nerd Font Bold ' .. dpi(9)
 

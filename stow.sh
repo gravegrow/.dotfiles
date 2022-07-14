@@ -1,1 +1,2 @@
-stow awesome kitty rofi media maya nvim ranger neofetch mpv lvim
+#!/bin/bash
+stow awesome kitty rofi media maya nvim ranger neofetch mpv picom

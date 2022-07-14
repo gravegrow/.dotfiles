@@ -91,7 +91,7 @@
                                 {
                                     "tabWidget": {
                                         "selectedIndex": 2,
-                                        "controlWidth": 701,
+                                        "controlWidth": 592,
                                         "controlHeight": 928,
                                         "collapsed": false,
                                         "controls": [
@@ -107,8 +107,8 @@
                                                 "closed": false,
                                                 "widthProperty": "preferred",
                                                 "heightProperty": "free",
-                                                "controlWidth": 240,
-                                                "controlHeight": 928,
+                                                "controlWidth": 471,
+                                                "controlHeight": 0,
                                                 "initCallback": "outlinerStateCallback",
                                                 "stateString": "outlinerEditor -e -docTag \"isolOutln_fromSeln\" -showShapes 0 -showAssignedMaterials 0 -showTimeEditor 1 -showReferenceNodes 1 -showReferenceMembers 1 -showAttributes 0 -showConnected 0 -showAnimCurvesOnly 0 -showMuteInfo 0 -organizeByLayer 1 -organizeByClip 1 -showAnimLayerWeight 1 -autoExpandLayers 1 -autoExpand 0 -showDagOnly 1 -showAssets 1 -showContainedOnly 0 -showPublishedAsConnected 0 -showParentContainers 0 -showContainerContents 0 -ignoreDagHierarchy 0 -expandConnections 0 -showUpstreamCurves 1 -showUnitlessCurves 1 -showCompounds 1 -showLeafs 1 -showNumericAttrsOnly 0 -highlightActive 1 -autoSelectNewObjects 0 -doNotSelectNewObjects 0 -dropIsParent 1 -transmitFilters 0 -setFilter \"defaultSetFilter\" -showSetMembers 0 -allowMultiSelection 1 -alwaysToggleSelect 0 -directSelect 0 -isSet 0 -isSetMember 0 -displayMode \"DAG\" -expandObjects 0 -setsIgnoreFilters 1 -containersIgnoreFilters 0 -editAttrName 0 -showAttrValues 0 -highlightSecondary 0 -showUVAttrsOnly 0 -showTextureNodesOnly 0 -attrAlphaOrder \"default\" -animLayerFilterOptions \"allAffecting\" -sortOrder \"none\" -longNames 0 -niceNames 1 -selectCommand \"print(\\\"\\\")\" -showNamespace 1 -showPinIcons 0 -mapMotionTrails 0 -ignoreHiddenAttribute 0 -ignoreOutlinerColor 0 -renderFilterVisible 0 -renderFilterIndex 0 -selectionOrder \"chronological\" -expandAttribute 0 $editorName"
                                             },
@@ -139,7 +139,7 @@
                                                 "closed": false,
                                                 "widthProperty": "free",
                                                 "heightProperty": "free",
-                                                "controlWidth": 701,
+                                                "controlWidth": 592,
                                                 "controlHeight": 928
                                             }
                                         ]
@@ -148,7 +148,7 @@
                                 {
                                     "tabWidget": {
                                         "selectedIndex": 0,
-                                        "controlWidth": 800,
+                                        "controlWidth": 757,
                                         "controlHeight": 928,
                                         "collapsed": true,
                                         "controls": [
@@ -164,7 +164,7 @@
                                                 "closed": false,
                                                 "widthProperty": "free",
                                                 "heightProperty": "free",
-                                                "controlWidth": 800,
+                                                "controlWidth": 757,
                                                 "controlHeight": 928
                                             },
                                             {
@@ -344,92 +344,11 @@
     ],
     "closedControls": [
         {
-            "objectName": "UVToolkitDockControl",
-            "posX": 13,
-            "posY": 38,
-            "controlHeight": 1385,
-            "controlWidth": 803,
-            "widthProperty": "preferred",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "AttributeEditor",
-            "posX": 483,
-            "posY": 388,
-            "controlHeight": 917,
-            "controlWidth": 581,
-            "widthProperty": "preferred",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "CharcoalEditor2Window",
-            "posX": 10,
-            "posY": 43,
-            "controlHeight": 1383,
-            "controlWidth": 1700,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "SetControlToolsWinObjectWorkspaceControl",
-            "posX": 1274,
-            "posY": 240,
-            "controlHeight": 596,
-            "controlWidth": 192,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "hyperShadePanel1Window",
-            "posX": 10,
-            "posY": 43,
-            "controlHeight": 1383,
-            "controlWidth": 1700,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
             "objectName": "SSEwindow",
             "posX": 11,
             "posY": 33,
             "controlHeight": 1392,
             "controlWidth": 1699,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "SimpleRigToolWorkspaceControl",
-            "posX": 13,
-            "posY": 35,
-            "controlHeight": 1388,
-            "controlWidth": 1695,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "polyTexturePlacementPanel1Window",
-            "posX": 13,
-            "posY": 38,
-            "controlHeight": 1385,
-            "controlWidth": 803,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "componentEditorPanel1Window",
-            "posX": 13,
-            "posY": 35,
-            "controlHeight": 1388,
-            "controlWidth": 1695,
-            "widthProperty": "free",
-            "heightProperty": "free"
-        },
-        {
-            "objectName": "MayaRenderSetupWindowWorkspaceControl",
-            "posX": 11,
-            "posY": 33,
-            "controlHeight": 1375,
-            "controlWidth": 725,
             "widthProperty": "free",
             "heightProperty": "free"
         },
@@ -443,12 +362,93 @@
             "heightProperty": "free"
         },
         {
+            "objectName": "MayaRenderSetupWindowWorkspaceControl",
+            "posX": 11,
+            "posY": 33,
+            "controlHeight": 1375,
+            "controlWidth": 725,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SetControlToolsWinObjectWorkspaceControl",
+            "posX": 312,
+            "posY": 250,
+            "controlHeight": 966,
+            "controlWidth": 380,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
             "objectName": "createNodePanel2Window",
             "posX": 13,
             "posY": 38,
             "controlHeight": 1385,
             "controlWidth": 2152,
             "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SimpleRigToolWorkspaceControl",
+            "posX": 13,
+            "posY": 35,
+            "controlHeight": 1388,
+            "controlWidth": 1695,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "hyperShadePanel1Window",
+            "posX": 10,
+            "posY": 43,
+            "controlHeight": 1383,
+            "controlWidth": 1700,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "polyTexturePlacementPanel1Window",
+            "posX": 13,
+            "posY": 38,
+            "controlHeight": 1385,
+            "controlWidth": 803,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "CharcoalEditor2Window",
+            "posX": 10,
+            "posY": 43,
+            "controlHeight": 1383,
+            "controlWidth": 1700,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "UVToolkitDockControl",
+            "posX": 13,
+            "posY": 38,
+            "controlHeight": 1385,
+            "controlWidth": 803,
+            "widthProperty": "preferred",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "componentEditorPanel1Window",
+            "posX": 13,
+            "posY": 35,
+            "controlHeight": 1388,
+            "controlWidth": 1695,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "AttributeEditor",
+            "posX": 1699,
+            "posY": 380,
+            "controlHeight": 917,
+            "controlWidth": 581,
+            "widthProperty": "preferred",
             "heightProperty": "free"
         }
     ]

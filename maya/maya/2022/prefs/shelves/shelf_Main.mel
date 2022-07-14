@@ -195,5 +195,38 @@ global proc shelf_Main () {
         -commandRepeatable 1
         -flat 1
     ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 33
+        -height 32
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "from maya import cmds\nfrom maya import cmds\n\n\ndef find_selection_center():\n    sel = cmds.ls(sl=True)\n    print(sel)\n    parent = cmds.listRelatives(parent=True)\n    tempClstr = cmds.cluster()\n    if tempClstr is None:\n        return\n\n    piv = cmds.xform(tempClstr[1], q=True, ws=True, rp=True)\n    cmds.delete(tempClstr)\n\n    print(piv)\n    loc = cmds.spaceLocator()\n    cmds.xform(loc, translation=piv, ws=True, a=True)\n\n    cmds.select(parent, sel)\n    cmds.selectMode(component=True)\n    cmds.selectType(vertex=True)\n\n\nfind_selection_center()\n\n\n" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "from maya import cmds\nfrom maya import cmds\n\n\ndef find_selection..." 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "pythonFamily.png" 
+        -image1 "pythonFamily.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "from maya import cmds\nfrom maya import cmds\n\n\ndef find_selection_center():\n    sel = cmds.ls(sl=True)\n\n    parent = cmds.listRelatives(parent=True)\n    tempClstr = cmds.cluster()\n    if tempClstr is None:\n        return\n\n    piv = cmds.xform(tempClstr[1], q=True, ws=True, rp=True)\n    cmds.delete(tempClstr)\n\n    loc = cmds.joint()\n    cmds.xform(loc, translation=piv, ws=True, a=True)\n\n    cmds.select(parent, sel)\n    cmds.selectMode(component=True)\n    cmds.selectType(edge=True)\n\n\nfind_selection_center()\n\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
 
 } 

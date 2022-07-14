@@ -120,7 +120,7 @@ awful.screen.connect_for_each_screen(function(screen)
         y_offset = 0.5 * beautiful.useless_gap,
         opacity = 0.80,
         bg_color = beautiful.bg_normal,
-        border_width = 0,
+        border_width = 1,
         border_color = '#282A36',
         block_a = { layoutbox },
         block_b = { taglist, tasklist },

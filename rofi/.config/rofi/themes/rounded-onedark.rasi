@@ -5,18 +5,20 @@
  *******************************************************************************/
 
 * {
-    bg0:    #1E1F29f2;
-    bg1:    #16161D;
-    bg2:    #4C566A80;
-    bg3:    #6E5991F2;
-    fg0:    #D8DEE9;
+    bg0:    #1E1F29cc;
+    bg1:    #111215;
+    bg2:    #16161D;
+    bg3:    #6E5991;
+    fg0:    #898E9C;
     fg1:    #ECEFF4;
     fg2:    #D8DEE9;
-    fg3:    #4C566A;
+    fg3:    #1E1F29;
+    fg4:    #589DD9;
+    border-radius: 7px;
 }
 
 @import "rounded-common.rasi"
 
 element selected {
-    text-color: @bg1;
+    text-color: @bg2;
 }

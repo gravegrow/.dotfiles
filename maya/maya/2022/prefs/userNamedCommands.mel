@@ -80,3 +80,9 @@ nameCommand
 	-command ("Redo")
 	RedoNameCommand;
 
+nameCommand
+	-annotation "joint_on_selected_edgeNameCommand"
+	-sourceType "mel"
+	-command ("joint_on_selected_edge")
+	joint_on_selected_edgeNameCommand;
+

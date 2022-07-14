@@ -127,7 +127,7 @@ awful.rules.rules = {
 
     {
         rule_any = {
-            class = { 'obs', 'obs' },
+            -- class = { 'obs' },
         },
         properties = { tag = tags[11], switchtotag = true },
     },

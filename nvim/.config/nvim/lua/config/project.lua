@@ -5,4 +5,4 @@ require('project_nvim').setup({
 
 require('telescope').load_extension('projects')
 
-vim.keymap.set({ 'n', 'v' }, '<leader>P', ':Telescope projects<cr>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>p', ':Telescope projects<cr>', { silent = true })
