@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    bg0:    #1E1F29cc;
+    bg0:    #1E1F29E9;
     bg1:    #111215;
     bg2:    #16161D;
     bg3:    #6E5991;
@@ -14,7 +14,7 @@
     fg2:    #D8DEE9;
     fg3:    #1E1F29;
     fg4:    #589DD9;
-    border-radius: 7px;
+    border-radius: 0px;
 }
 
 @import "rounded-common.rasi"

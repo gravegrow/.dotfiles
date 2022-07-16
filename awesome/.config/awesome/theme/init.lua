@@ -11,7 +11,7 @@ local theme = {}
 theme.red       = '#E06C75'
 theme.green     = '#98C379'
 theme.blue      = '#65aaee'
-theme.normal    = '#1E1F29'
+theme.normal    = '#1E1F29F5'
 theme.highlight = '#6E5991'
 theme.border    = '#282a36'
 -- stylua: ignore end
@@ -19,6 +19,7 @@ theme.border    = '#282a36'
 theme.font = 'JetBrainsMono Nerd Font Bold ' .. dpi(9)
 
 theme.bg_normal = theme.normal
+theme.bg_secondary = '#1B1721'
 theme.bg_focus = theme.highlight
 theme.bg_urgent = theme.red
 theme.bg_minimize = theme.border
@@ -84,15 +85,16 @@ theme.layout_termfair   = config_path .. 'theme/layouts/dracula/fairhw.png'
 
 -- stylua: ignore end
 
-theme.tasklist_bg_normal = '#1B1721'
+theme.tasklist_bg_normal = theme.border
 theme.tasklist_bg_minimize = theme.border
 theme.tasklist_bg_focus = theme.border_focus
 
 theme.widget_bg = '#1B1721'
 theme.widget_gap = dpi(4)
 theme.widget_border = dpi(3)
+theme.widget_corner_radius = dpi(0)
 theme.widget_shape = function(cr, w, h)
-    shape.rounded_rect(cr, w, h - theme.widget_border, theme.corner_radius)
+    shape.rounded_rect(cr, w, h - theme.widget_border, theme.widget_corner_radius)
 end
 
 theme.widget_style = function(widget)

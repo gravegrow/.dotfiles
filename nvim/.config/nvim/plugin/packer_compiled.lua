@@ -186,7 +186,7 @@ _G.packer_plugins = {
     config = { 'require("config/theming")' },
     loaded = true,
     path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/onedarker.nvim",
-    url = "https://github.com/LunarVim/onedarker.nvim"
+    url = "https://github.com/H4ckint0sh/onedarker.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -265,10 +265,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: onedarker.nvim
-time([[Config for onedarker.nvim]], true)
-require("config/theming")
-time([[Config for onedarker.nvim]], false)
+-- Config for: vim-hexokinase
+time([[Config for vim-hexokinase]], true)
+require("config/hexokinase")
+time([[Config for vim-hexokinase]], false)
 -- Config for: project.nvim
 time([[Config for project.nvim]], true)
 require("config/project")
@@ -305,18 +305,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for toggleterm.nvim]], true)
 require("config/toggleterm")
 time([[Config for toggleterm.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require("config/comment")
-time([[Config for Comment.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 require("config/trouble")
 time([[Config for trouble.nvim]], false)
--- Config for: vim-easy-align
-time([[Config for vim-easy-align]], true)
-require("config/easy-align")
-time([[Config for vim-easy-align]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("config/lsp-config")
@@ -325,18 +317,26 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for vim-JakeSender]], true)
 require("config/maya-log")
 time([[Config for vim-JakeSender]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require("config/bufferline")
-time([[Config for bufferline.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("config/treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: vim-hexokinase
-time([[Config for vim-hexokinase]], true)
-require("config/hexokinase")
-time([[Config for vim-hexokinase]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+require("config/easy-align")
+time([[Config for vim-easy-align]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require("config/bufferline")
+time([[Config for bufferline.nvim]], false)
+-- Config for: onedarker.nvim
+time([[Config for onedarker.nvim]], true)
+require("config/theming")
+time([[Config for onedarker.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require("config/comment")
+time([[Config for Comment.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

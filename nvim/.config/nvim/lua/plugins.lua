@@ -11,7 +11,7 @@ packer.startup({
         use('tpope/vim-fugitive')
         use('kyazdani42/nvim-web-devicons')
 
-        use({ 'LunarVim/onedarker.nvim', config = get_config('theming') })
+        use({ 'H4ckint0sh/onedarker.nvim', config = get_config('theming') })
         use({ 'akinsho/bufferline.nvim', config = get_config('bufferline') })
         use({ 'nvim-lualine/lualine.nvim', config = get_config('lualine') })
 

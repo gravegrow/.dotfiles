@@ -1,0 +1,7 @@
+#!/bin/sh
+killall -9 xwinwrap
+
+path=$(cat $HOME/.dotfiles/scripts/livewallpapers/wallpaper-path)
+
+xwinwrap -g 3440x1440+0+0 -un -fdt -ni -b -nf -ov -- $HOME/.dotfiles/scripts/livewallpapers/wallpaper-player %WID $path &
+xwinwrap -g 2560x1440+3440+0 -un -fdt -ni -b -nf -ov -- $HOME/.dotfiles/scripts/livewallpapers/wallpaper-player %WID $path &

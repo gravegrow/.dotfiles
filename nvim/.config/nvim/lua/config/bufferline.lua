@@ -31,6 +31,7 @@ require('utils').autocmd({
 
         F('hi BufferLineSeparator                 guibg=%s guifg=%s', colors.separator, colors.separator),
         F('hi BufferLineIndicatorSelected         guibg=none guifg=%s', colors.blue),
+        F('hi BufferLineIndicatorVisible          guibg=%s guifg=%s', colors.dark_gray, colors.dark_gray),
 
         F('hi BufferLineErrorSelected             gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
         F('hi BufferLineErrorDiagnosticSelected   gui=bold guibg=%s guifg=%s', colors.bg, colors.red),

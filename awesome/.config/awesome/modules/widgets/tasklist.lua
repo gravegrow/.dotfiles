@@ -49,13 +49,13 @@ function _M.init(s)
                             widget = wibox.container.margin,
                         },
                         wibox.widget.base.make_widget(),
-                        bg = beautiful.tasklist_bg_normal,
+                        bg = beautiful.bg_secondary,
                         shape = function(cr, w)
                             gears.shape.rounded_rect(
                                 cr,
                                 w,
-                                beautiful.bar_height - beautiful.widget_border * 3,
-                                beautiful.corner_radius
+                                beautiful.bar_height - beautiful.widget_border * 3 + 1,
+                                beautiful.widget_corner_radius
                             )
                         end,
                         widget = wibox.container.background,
