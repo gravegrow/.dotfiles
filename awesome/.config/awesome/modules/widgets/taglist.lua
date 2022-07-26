@@ -27,11 +27,8 @@ local taglist_buttons = gears.table.join(
     end)
 )
 
-local tags_one = { 'MAIN', 'DEV', 'FILES', 'GAMES', 'SETTINGS', 'OTHER' }
-local icons_one = { ' ', ' ', ' ', ' ', ' ', '' }
-
-local tags_two = { 'BROWSER', 'DISCORD', 'SPOTIFY', 'KEEPASS', 'OBS' }
-local icons_two = { ' ', ' ', '\u{007f} ', ' ', ' ' }
+local tags_one = { 'MAIN', 'DEV', 'FILES', 'GAMES', 'SETTINGS' }
+local tags_two = { 'MEDIA', 'DISCORD', 'SPOTIFY', 'KEEPASS', 'QBIT' }
 
 local widget = function(screen)
     local tags = screen.index == 1 and tags_one or tags_two

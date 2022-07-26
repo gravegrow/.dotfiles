@@ -40,7 +40,6 @@ theme.border_focus = '#403355'
 theme.bg_systray = '#1B1721'
 theme.systray_icon_spacing = dpi(6)
 
--- theme.taglist_font = 'ShureTechMono Nerd Font Mod 15'
 theme.taglist_font = 'JetBrainsMono Nerd Font Bold ' .. dpi(10)
 theme.taglist_fg_focus = theme.blue
 theme.taglist_fg_occupied = theme.highlight
@@ -91,10 +90,11 @@ theme.tasklist_bg_focus = theme.border_focus
 
 theme.widget_bg = '#1B1721'
 theme.widget_gap = dpi(4)
-theme.widget_border = dpi(3)
+theme.widget_margin = dpi(3)
 theme.widget_corner_radius = dpi(0)
+
 theme.widget_shape = function(cr, w, h)
-    shape.rounded_rect(cr, w, h - theme.widget_border, theme.widget_corner_radius)
+    shape.rounded_rect(cr, w, h - theme.widget_margin, theme.widget_corner_radius)
 end
 
 theme.widget_style = function(widget)
@@ -102,7 +102,7 @@ theme.widget_style = function(widget)
     widget = wibox.container.background(widget, theme.widget_bg, theme.widget_shape)
     widget.shape_border_width = dpi(1)
     widget.shape_border_color = theme.border
-    widget = wibox.container.margin(widget, theme.widget_gap, theme.widget_gap, theme.widget_border, 0)
+    widget = wibox.container.margin(widget, theme.widget_gap, theme.widget_gap, theme.widget_margin, 0)
     return widget
 end
 

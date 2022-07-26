@@ -2,7 +2,6 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local tags = root.tags()
 
--- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
     {
@@ -18,7 +17,6 @@ awful.rules.rules = {
             placement = awful.placement.no_overlap + awful.placement.no_offscreen,
         },
     },
-
     -- Floating clients.
     {
         rule_any = {
@@ -42,7 +40,6 @@ awful.rules.rules = {
                 'galculator',
                 'Galculator',
             },
-
             -- Note that the name property shown in xprop might be set slightly after creation of the client
             -- and the name shown there might not match defined rules here.
             name = {
@@ -80,7 +77,6 @@ awful.rules.rules = {
         },
         properties = { floating = true },
     },
-
     {
         rule_any = {
             name = { 'Add/Remove Software', 'NVIDIA X Server Settings' },
@@ -95,55 +91,32 @@ awful.rules.rules = {
         },
         properties = { tag = tags[5], switchtotag = true },
     },
-
     {
-        rule_any = {
-            class = { 'maya.bin', 'Maya-2022' },
-        },
+        rule_any = { class = { 'maya.bin', 'Maya-2022' } },
         properties = { tag = tags[2], switchtotag = true },
     },
-
     {
-        rule_any = {
-            class = { 'spotify', 'Spotify' },
-            name = { 'Spotify' },
-        },
-        properties = { tag = tags[9], switchtotag = true },
-    },
-
-    {
-        rule_any = {
-            class = { 'discord', 'Discord' },
-        },
+        rule_any = { class = { 'spotify', 'Spotify' }, name = { 'Spotify' } },
         properties = { tag = tags[8], switchtotag = true },
     },
-
     {
-        rule_any = {
-            class = { 'keepassxc', 'KeePassXC' },
-        },
+        rule_any = { class = { 'discord', 'Discord' } },
+        properties = { tag = tags[7], switchtotag = true },
+    },
+    {
+        rule_any = { class = { 'keepassxc', 'KeePassXC' } },
+        properties = { tag = tags[9], switchtotag = true },
+    },
+    {
+        rule_any = { class = { 'qBittorrent' } },
         properties = { tag = tags[10], switchtotag = true },
     },
-
     {
-        rule_any = {
-            -- class = { 'obs' },
-        },
-        properties = { tag = tags[11], switchtotag = true },
-    },
-
-    {
-        rule_any = {
-            class = { 'Thunar', 'Thunar', 'Nemo', 'nemo' },
-        },
+        rule_any = { class = { 'Thunar', 'Thunar', 'Nemo', 'nemo' } },
         properties = { tag = tags[3], switchtotag = true },
     },
-
     {
-        rule_any = {
-            class = { 'Steam', 'Steam', 'lutris', 'Lutris' },
-        },
+        rule_any = { class = { 'Steam', 'Steam', 'lutris', 'Lutris' } },
         properties = { tag = tags[4], switchtotag = true },
     },
 }
--- }}}

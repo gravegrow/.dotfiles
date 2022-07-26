@@ -44,8 +44,8 @@ function _M.init(s)
                             },
                             left = 8,
                             right = 8,
-                            top = -1,
-                            bottom = -1,
+                            top = 1,
+                            bottom = 1,
                             widget = wibox.container.margin,
                         },
                         wibox.widget.base.make_widget(),
@@ -54,7 +54,7 @@ function _M.init(s)
                             gears.shape.rounded_rect(
                                 cr,
                                 w,
-                                beautiful.bar_height - beautiful.widget_border * 3 + 1,
+                                beautiful.bar_height - beautiful.widget_margin * 3 + 1,
                                 beautiful.widget_corner_radius
                             )
                         end,
@@ -77,7 +77,7 @@ function _M.init(s)
         },
     })
 
-    tasklist = wibox.container.margin(tasklist, beautiful.widget_gap, beautiful.widget_gap, beautiful.widget_border, 0)
+    tasklist = wibox.container.margin(tasklist, beautiful.widget_gap, beautiful.widget_gap, beautiful.widget_margin, 0)
     return tasklist
 end
 

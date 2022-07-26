@@ -16,7 +16,7 @@ local hider = wibox.widget({
     bottom = 3,
 })
 
-local function hider_chager()
+local function icon_swap()
     if text.text == icon_exp then
         text.markup = markup.fg.color(color, icon_col)
     else
@@ -45,7 +45,7 @@ local widget = wibox.widget({
 hider:connect_signal('button::press', function(_, _, _, button)
     if button == 1 then
         systray.visible = not systray.visible
-        hider_chager()
+        icon_swap()
     end
 end)
 

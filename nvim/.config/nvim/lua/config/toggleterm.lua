@@ -1,16 +1,22 @@
 require('toggleterm').setup({
     open_mapping = [[<c-t>]],
     direction = 'float',
-    higlights = {
-        FloatBorder = { link = 'FloatBorder' },
+    highlights = {
+        FloatBorder = { guifg = require('colors-and-icons').colors.border, guibg = 'none' },
     },
 })
 
-local Terminal = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({ cmd = 'lazygit', hidden = true })
+local terminal = require('toggleterm.terminal').Terminal
+local lazygit = terminal:new({ cmd = 'lazygit', hidden = true })
+local ranger = terminal:new({ cmd = 'ranger', hidden = true })
 
-function _Lazygit_toggle()
+local lazygit_toggle = function()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<c-g>', '<cmd>lua _Lazygit_toggle()<CR>', { noremap = true, silent = true })
+local ranger_toggle = function()
+    ranger:toggle()
+end
+
+vim.keymap.set('n', '<c-g>', lazygit_toggle, { noremap = true, silent = true })
+vim.keymap.set('n', '<c-e>', ranger_toggle, { noremap = true, silent = true })

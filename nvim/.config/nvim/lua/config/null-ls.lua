@@ -12,7 +12,7 @@ null_ls.setup({
         }),
 
         diagnostics.flake8.with({
-            extra_args = { '--ignore', 'D,F401,E302,E303,E999,F821,WPS306,WPS421,E800' },
+            extra_args = { '--ignore', 'D,F401,E302,E303,E999,F821,WPS306,WPS421,E800,WPS102' },
             on_output = h.diagnostics.from_pattern(
                 [[:(%d+):(%d+): ((%u)%w+) (.*)]],
                 { 'row', 'col', 'code', 'severity', 'message' },
@@ -28,6 +28,7 @@ null_ls.setup({
                         C = h.diagnostics.severities['warning'],
                         N = h.diagnostics.severities['warning'],
                         Q = h.diagnostics.severities['warning'],
+                        P = h.diagnostics.severities['warning'],
                     },
                 }
             ),

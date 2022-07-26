@@ -3,12 +3,12 @@ local _M  = {}
 _M.border = {}
 
 _M.colors = {
-    normal     = '#9A9FAE',
-    bg         = '#1E1F29',
-    fg         = '#5C6370',
-    inactive   = '#16161D',
-    separator  = '#111215',
-    border     = '#6E5991',
+    normal    = '#9A9FAE',
+    bg        = '#1E1F29',
+    fg        = '#5C6370',
+    inactive  = '#16161D',
+    separator = '#111215',
+    border    = '#6E5991',
 
     red        = '#D66871',
     green      = '#98C379',

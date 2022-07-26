@@ -171,6 +171,12 @@ _G.packer_plugins = {
     path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    config = { 'require("config/nvim-tree")' },
+    loaded = true,
+    path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     config = { 'require("config/treesitter")' },
     loaded = true,
@@ -186,7 +192,7 @@ _G.packer_plugins = {
     config = { 'require("config/theming")' },
     loaded = true,
     path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/onedarker.nvim",
-    url = "https://github.com/H4ckint0sh/onedarker.nvim"
+    url = "https://github.com/LunarVim/onedarker.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -209,12 +215,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
     url = "https://github.com/ThePrimeagen/refactoring.nvim"
-  },
-  ["telescope-file-browser.nvim"] = {
-    config = { 'require("config/file-browser")' },
-    loaded = true,
-    path = "/home/gravegrow/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     config = { 'require("config/telescope")' },
@@ -265,30 +265,38 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+require("config/easy-align")
+time([[Config for vim-easy-align]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require("config/comment")
+time([[Config for Comment.nvim]], false)
 -- Config for: vim-hexokinase
 time([[Config for vim-hexokinase]], true)
 require("config/hexokinase")
 time([[Config for vim-hexokinase]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-require("config/project")
-time([[Config for project.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require("config/bufferline")
+time([[Config for bufferline.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("config/lualine")
 time([[Config for lualine.nvim]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-require("config/refactor")
-time([[Config for refactoring.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require("config/project")
+time([[Config for project.nvim]], false)
 -- Config for: null-ls.nvim
 time([[Config for null-ls.nvim]], true)
 require("config/null-ls")
 time([[Config for null-ls.nvim]], false)
--- Config for: telescope-file-browser.nvim
-time([[Config for telescope-file-browser.nvim]], true)
-require("config/file-browser")
-time([[Config for telescope-file-browser.nvim]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require("config/refactor")
+time([[Config for refactoring.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 require("config/autopairs")
@@ -305,10 +313,22 @@ time([[Config for nvim-cmp]], false)
 time([[Config for toggleterm.nvim]], true)
 require("config/toggleterm")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: onedarker.nvim
+time([[Config for onedarker.nvim]], true)
+require("config/theming")
+time([[Config for onedarker.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("config/treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 require("config/trouble")
 time([[Config for trouble.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require("config/nvim-tree")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("config/lsp-config")
@@ -317,26 +337,6 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for vim-JakeSender]], true)
 require("config/maya-log")
 time([[Config for vim-JakeSender]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("config/treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: vim-easy-align
-time([[Config for vim-easy-align]], true)
-require("config/easy-align")
-time([[Config for vim-easy-align]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require("config/bufferline")
-time([[Config for bufferline.nvim]], false)
--- Config for: onedarker.nvim
-time([[Config for onedarker.nvim]], true)
-require("config/theming")
-time([[Config for onedarker.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require("config/comment")
-time([[Config for Comment.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

@@ -51,6 +51,7 @@ local diff = {
         return vim.fn.winwidth(0) > 80
     end,
 }
+
 local filetype = {
     'filetype',
     colored = false,

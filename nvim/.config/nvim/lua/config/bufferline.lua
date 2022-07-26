@@ -10,52 +10,86 @@ require('bufferline').setup({
         show_close_icon = false,
         show_buffer_close_icons = false,
         show_tab_indicator = true,
-        separator_style = 'thick',
+        separator_style = 'thin',
         diagnostics_indicator = function(_, level, _, _)
             return icons[level]
         end,
+        offsets = {
+            {
+                filetype = 'NvimTree',
+                text = 'File Explorer',
+                highlight = 'Directory',
+                text_align = 'left',
+            },
+        },
     },
 })
 
-vim.keymap.set({ 'n', 'v' }, 'L', ':BufferLineCycleNext<cr>', { silent = true })
-vim.keymap.set({ 'n', 'v' }, 'H', ':BufferLineCyclePrev<cr>', { silent = true })
+local cycle = {
+    next = function()
+        require('bufferline').cycle(1)
+    end,
+    prev = function()
+        require('bufferline').cycle(-1)
+    end,
+}
+
+local function toggle_bufferline()
+    if vim.o.showtabline ~= 0 then
+        vim.o.showtabline = 0
+    else
+        vim.o.showtabline = 2
+    end
+end
+
+vim.keymap.set({ 'n', 'v' }, 'L', cycle.next, { silent = true })
+vim.keymap.set({ 'n', 'v' }, 'H', cycle.prev, { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<a-w>', toggle_bufferline, { silent = true })
 
 require('utils').autocmd({
     event = { 'VimEnter', 'ColorScheme' },
     group = 'Bufferline_Theming',
 
     commands = {
-        F('hi BufferLineBackground                gui=none guifg=%s guibg=%s', colors.fg, colors.dark_gray),
-        F('hi BufferLineBufferSelected            gui=bold guifg=%s guibg=none ', colors.normal),
-        F('hi BufferLineBufferVisible             gui=none guibg=%s', colors.dark_gray),
+        Format('hi BufferLineBackground                gui=none guifg=%s guibg=%s', colors.fg, colors.dark_gray),
+        Format('hi BufferLineBufferSelected            gui=bold guifg=%s guibg=none ', colors.normal),
+        Format('hi BufferLineBufferVisible             gui=none guibg=%s', colors.dark_gray),
 
-        F('hi BufferLineSeparator                 guibg=%s guifg=%s', colors.separator, colors.separator),
-        F('hi BufferLineIndicatorSelected         guibg=none guifg=%s', colors.blue),
-        F('hi BufferLineIndicatorVisible          guibg=%s guifg=%s', colors.dark_gray, colors.dark_gray),
+        Format('hi BufferLineSeparator                 guibg=%s guifg=%s', colors.separator, colors.separator),
+        Format('hi BufferLineIndicatorSelected         guibg=none guifg=%s', colors.blue),
+        Format('hi BufferLineIndicatorVisible          guibg=%s guifg=%s', colors.dark_gray, colors.dark_gray),
 
-        F('hi BufferLineErrorSelected             gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
-        F('hi BufferLineErrorDiagnosticSelected   gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
-        F('hi BufferLineError                     gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
-        F('hi BufferLineErrorDiagnostic           gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
+        Format('hi BufferLineErrorSelected             gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
+        Format('hi BufferLineErrorDiagnosticSelected   gui=bold guibg=%s guifg=%s', colors.bg, colors.red),
+        Format('hi BufferLineError                     gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
+        Format('hi BufferLineErrorVisible              guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineErrorDiagnostic           gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_red),
+        Format('hi BufferLineErrorDiagnosticVisible    guibg=%s guifg=%s', colors.inactive, colors.fg),
 
-        F('hi BufferLineHintSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
-        F('hi BufferLineHintDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
-        F('hi BufferLineHint                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
-        F('hi BufferLineHintDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
+        Format('hi BufferLineHintSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
+        Format('hi BufferLineHintDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
+        Format('hi BufferLineHint                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineHintVisible               guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineHintDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
+        Format('hi BufferLineHintDiagnosticVisible     guibg=%s guifg=%s', colors.inactive, colors.fg),
 
-        F('hi BufferLineWarningSelected           gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
-        F('hi BufferLineWarningDiagnosticSelected gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
-        F('hi BufferLineWarning                   gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
-        F('hi BufferLineWarningDiagnostic         gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
+        Format('hi BufferLineWarningSelected           gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
+        Format('hi BufferLineWarningDiagnosticSelected gui=bold guibg=%s guifg=%s', colors.bg, colors.orange),
+        Format('hi BufferLineWarning                   gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
+        Format('hi BufferLineWarningVisible            guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineWarningDiagnostic         gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_orange),
+        Format('hi BufferLineWarningDiagnosticVisible  guibg=%s guifg=%s', colors.inactive, colors.fg),
 
-        F('hi BufferLineInfoSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
-        F('hi BufferLineInfoDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
-        F('hi BufferLineInfo                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
-        F('hi BufferLineInfoDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
+        Format('hi BufferLineInfoSelected              gui=bold guibg=%s guifg=%s', colors.bg, colors.normal),
+        Format('hi BufferLineInfoDiagnosticSelected    gui=bold guibg=%s guifg=%s', colors.bg, colors.blue),
+        Format('hi BufferLineInfo                      gui=bold guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineInfoVisible               guibg=%s guifg=%s', colors.inactive, colors.fg),
+        Format('hi BufferLineInfoDiagnostic            gui=bold guibg=%s guifg=%s', colors.inactive, colors.dim_blue),
+        Format('hi BufferLineInfoDiagnosticVisible     guibg=%s guifg=%s', colors.inactive, colors.fg),
 
-        F('hi BufferLineModified                  guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
-        F('hi BufferLineModifiedVisible           guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
-        F('hi BufferLineModifiedSelected          guifg=%s guibg=none', colors.green),
-        F('hi BufferLineFill                      guibg=%s', colors.black),
+        Format('hi BufferLineModified                  guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
+        Format('hi BufferLineModifiedVisible           guifg=%s guibg=%s', colors.dim_green, colors.dark_gray),
+        Format('hi BufferLineModifiedSelected          guifg=%s guibg=none', colors.green),
+        Format('hi BufferLineFill                      guibg=%s', colors.black),
     },
 })

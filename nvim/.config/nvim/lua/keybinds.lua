@@ -1,19 +1,21 @@
-local map = vim.keymap.set
+local map = function(mode, lh, rh)
+    vim.keymap.set(mode, lh, rh, { silent = true })
+end
 
 vim.g.mapleader = ' '
 
-map({ 'n', 'v' }, '<C-s>', '<cmd>w<cr>', { silent = true })
-map('n', 'gf', ':edit <cfile><cr>', { silent = true })
+map({ 'n', 'v' }, '<C-s>', ':w<cr>')
+map('n', 'gf', ':edit <cfile><cr>')
 
-map('v', 'p', '"_dP', { silent = true })
+map('v', 'p', '"_dP')
 
-map('v', '<', '<gv', { silent = true })
-map('v', '>', '>gv', { silent = true })
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
-map('n', '<c-h>', '<c-w>h', { silent = true })
-map('n', '<c-j>', '<c-w>j', { silent = true })
-map('n', '<c-k>', '<c-w>k', { silent = true })
-map('n', '<c-l>', '<c-w>l', { silent = true })
+map('n', '<c-h>', '<c-w>h')
+map('n', '<c-j>', '<c-w>j')
+map('n', '<c-k>', '<c-w>k')
+map('n', '<c-l>', '<c-w>l')
 
-map('n', '<A-k>', ':move .-2<CR>==', { silent = true })
-map('n', '<A-j>', ':move .+1<CR>==', { silent = true })
+map('n', '<A-k>', ':move .-2<CR>==')
+map('n', '<A-j>', ':move .+1<CR>==')

@@ -3,6 +3,7 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
 --stylua: ignore start
+
 local sources = {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
@@ -11,7 +12,7 @@ local sources = {
     { name = 'path' },
     { name = 'buffer' },
     { name = 'rg' },
-    { name = 'cmp_tabnine' },
+    { name = 'cmp_tabnine', max_item_count = 3 },
 }
 
 local menu = {
@@ -56,6 +57,8 @@ cmp.setup({
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-u>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),

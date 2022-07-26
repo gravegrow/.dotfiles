@@ -1,13 +1,13 @@
-local prefix = 'export EDITOR=$HOME/.local/bin/lvim \n'
-
+--stylua: ignore start
 local variables = {
-    terminal = 'kitty',
-    modkey = 'Mod4',
-    filemanager = prefix .. 'kitty ranger',
-    colorpicker = 'gpick --pick --single --no-start',
-    firefox = 'firefox',
-    browser = ' ',
+    terminal     = 'kitty',
+    modkey       = 'Mod4',
+    filemanager  = 'kitty ranger',
+    colorpicker  = 'gpick --pick',
+    firefox      = 'firefox',
+    browser      = ' ',
     app_launcher = 'rofi -show drun -sorting-method fzf -sort',
 }
+--stylua: ignore end
 
 return variables
